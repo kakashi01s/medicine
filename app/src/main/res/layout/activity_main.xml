@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".view.MainActivity">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <com.google.android.material.tabs.TabLayout
+            android:id="@+id/view_pager_tab"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="2"
+            android:elevation="10dp"
+            app:tabBackground="@color/white"
+            app:tabGravity="fill"
+            app:tabIndicatorColor="@color/colorPrimary"
+            app:tabMode="fixed"
+            app:tabRippleColor="@color/colorPrimary"
+            app:tabSelectedTextColor="@color/colorPrimary"
+            android:theme="@style/TabLayout_Theme"
+            app:tabTextAppearance="@style/tab_text" />
+
+    </LinearLayout>
+
+
+    <food.delivery.fantasy.hub.online.coupons.deals.network.bazaar.tracker.utils.CustomViewPager
+        android:id="@+id/vpPager"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+    </food.delivery.fantasy.hub.online.coupons.deals.network.bazaar.tracker.utils.CustomViewPager>
+
+
+</LinearLayout>

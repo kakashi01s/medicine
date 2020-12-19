@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="250dp"
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    app:cardCornerRadius="10dp"
+    app:cardElevation="1dp"
+    android:layout_margin="10dp">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:padding="10dp">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center_vertical">
+
+            <ImageView
+                android:id="@+id/ivTrendingIcon"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:src="@mipmap/ic_launcher"/>
+
+            <TextView
+                android:id="@+id/tvTrendingName"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/fund_name"
+                android:textSize="14sp"
+                android:maxLines="2"
+                android:textColor="@color/black_75"
+                android:layout_marginStart="10dp"
+                android:layout_marginLeft="10dp"
+                android:fontFamily="@font/montserrat_semibold" />
+
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/tvTrendingDesc"
+            android:layout_width="match_parent"
+            android:layout_height="70dp"
+            android:text="@string/fund_desc"
+            android:textSize="11sp"
+            android:maxLines="3"
+            android:fontFamily="@font/montserrat_semibold"
+            android:paddingTop="10dp"
+            android:paddingBottom="10dp"/>
+
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/tvExplore"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/explore"
+            android:gravity="center"
+            android:padding="10dp"
+            android:textSize="14sp"
+            android:background="@color/colorPrimary"
+            android:textColor="@color/white"
+            android:fontFamily="@font/montserrat_semibold" />
+
+    </LinearLayout>
+
+</androidx.cardview.widget.CardView>

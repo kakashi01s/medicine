@@ -1,0 +1,51 @@
+<resources>
+    <string name="app_name">Global Food Crate</string>
+    <string name="facebook_app_id">722413805027589</string>
+    <!-- TODO: Remove or change this placeholder text -->
+
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="fund_name">Fund Name</string>
+    <string name="fund_desc">Fund Description</string>
+    <string name="more_info">More Info</string>
+    <string name="deals">Deals</string>
+    <string name="coupons">Coupons</string>
+    <string name="fact_sheet">Fact Sheet</string>
+    <string name="explore">Explore</string>
+    <string name="recipes">International Recipes</string>
+    <string name="account_statement">Account Statement</string>
+    <string name="all_apps">All Apps</string>
+    <string name="india">India</string>
+    <string name="usa">USA</string>
+    <string name="russia">Russia</string>
+    <string name="china">China</string>
+    <string name="pakistan">Pakistan</string>
+    <string name="italy">Italy</string>
+    <string name="uae">UAE</string>
+    <string name="turkey">Turkey</string>
+    <string name="switzerland">Switzerland</string>
+    <string name="canada">Canada</string>
+    <string name="singapore">Singapore</string>
+    <string name="south_africa">South Africa</string>
+    <string name="france">France</string>
+    <string name="germany">Germany</string>
+    <string name="japan">Japan</string>
+    <string name="brazil">Brazil</string>
+    <string name="indonesia">Indonesia</string>
+    <string name="united_kingdom">United Kingdom</string>
+    <string name="nigeria">Nigeria</string>
+    <string name="portugul">Portugul</string>
+    <string name="australia">Australia</string>
+    <string name="greece">Greece</string>
+
+    <string name="asia">Asia</string>
+    <string name="africa">Africa</string>
+    <string name="europe">Europe</string>
+    <string name="north_america">North America</string>
+    <string name="south_america">South America</string>
+
+    <string name="live_news">Currency and Cryptocurrency</string>
+    <string name="cooking_channels">Cooking Channels</string>
+    <string name="useful_apps">Most Useful Apps</string>
+
+    <string name="ad">Ad</string>
+</resources>
