@@ -223,5 +223,4 @@ class WebActivity : AppCompatActivity() {
         webView!!.restoreState(savedInstanceState)
     }
 
-
 }

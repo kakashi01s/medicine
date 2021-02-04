@@ -2,6 +2,7 @@ package food.delivery.fantasy.hub.online.coupons.deals.network.bazaar.tracker.vi
 
 import food.delivery.fantasy.hub.online.coupons.deals.network.bazaar.tracker.base.listener.BaseRecyclerListener
 
-interface MostUsefulAppsItemClickListener <T> : BaseRecyclerListener {
-    fun onMostUsefulAppsCardClick(item: T)
+interface CookingItemClickListener <T> : BaseRecyclerListener {
+
+    fun onCookingChannelsCardClick(item: T)
 }

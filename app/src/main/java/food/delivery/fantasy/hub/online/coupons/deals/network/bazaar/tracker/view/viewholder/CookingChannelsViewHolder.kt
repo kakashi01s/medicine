@@ -9,9 +9,10 @@ import com.bumptech.glide.Glide
 import com.bumptech.glide.load.engine.DiskCacheStrategy
 import food.delivery.fantasy.hub.online.coupons.deals.network.bazaar.tracker.R
 import food.delivery.fantasy.hub.online.coupons.deals.network.bazaar.tracker.base.viewholder.BaseViewHolder
+import food.delivery.fantasy.hub.online.coupons.deals.network.bazaar.tracker.view.listener.CookingItemClickListener
 import food.delivery.fantasy.hub.online.coupons.deals.network.bazaar.tracker.view.listener.MostUsefulAppsItemClickListener
 
-class CookingChannelsViewHolder(itemView: View) : BaseViewHolder<List<String>, MostUsefulAppsItemClickListener<List<String>>>(itemView) {
+class CookingChannelsViewHolder(itemView: View) : BaseViewHolder<List<String>, CookingItemClickListener<List<String>>>(itemView) {
 
         var ivPortalImage: ImageView? = null
         var tvPortalName: TextView? = null
@@ -24,7 +25,7 @@ class CookingChannelsViewHolder(itemView: View) : BaseViewHolder<List<String>, M
         }
 
 
-        override fun onBind(item: List<String>, listener: MostUsefulAppsItemClickListener<List<String>>?) {
+        override fun onBind(item: List<String>, listener: CookingItemClickListener<List<String>>?) {
 
             Glide.with(ivPortalImage!!.context)
                 .load(item.get(3))

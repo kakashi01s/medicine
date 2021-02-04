@@ -20,6 +20,7 @@ import food.delivery.fantasy.hub.online.coupons.deals.network.bazaar.tracker.vie
 import food.delivery.fantasy.hub.online.coupons.deals.network.bazaar.tracker.view.adapter.CookingChannelsAdapter
 import food.delivery.fantasy.hub.online.coupons.deals.network.bazaar.tracker.view.adapter.LiveNewsAdapter
 import food.delivery.fantasy.hub.online.coupons.deals.network.bazaar.tracker.view.adapter.MostUsefulAppsAdapter
+import food.delivery.fantasy.hub.online.coupons.deals.network.bazaar.tracker.view.listener.CookingItemClickListener
 import food.delivery.fantasy.hub.online.coupons.deals.network.bazaar.tracker.view.listener.LiveNewsItemClickListener
 import food.delivery.fantasy.hub.online.coupons.deals.network.bazaar.tracker.view.listener.MostUsefulAppsItemClickListener
 import food.delivery.fantasy.hub.online.coupons.deals.network.bazaar.tracker.viewmodel.ToolsViewModel
@@ -36,7 +37,7 @@ private const val ARG_PARAM2 = "param2"
  * create an instance of this fragment.
  */
 class ToolsFragment : Fragment(), LiveNewsItemClickListener<List<String>>,
-    MostUsefulAppsItemClickListener<List<String>> {
+    MostUsefulAppsItemClickListener<List<String>>,CookingItemClickListener<List<String>> {
     // TODO: Rename and change types of parameters
     private var param1: Int? = null
     private var param2: String? = null
