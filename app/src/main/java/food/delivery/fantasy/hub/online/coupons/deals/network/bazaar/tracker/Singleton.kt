@@ -67,12 +67,12 @@ class Singleton : Application() {
         remoteConfigDefaults[ForceUpdateChecker().KEY_UPDATE_URL] =
             "https://play.google.com/store/apps/details?id="+applicationContext.packageName
 
-        firebaseRemoteConfig.setDefaults(remoteConfigDefaults)
+        firebaseRemoteConfig.setDefaultsAsync(remoteConfigDefaults)
         firebaseRemoteConfig.fetch(300) // fetch every minutes
             .addOnCompleteListener(OnCompleteListener<Void?> { task ->
                 if (task.isSuccessful) {
                     Log.d("TAG", "remote config is fetched.$task")
-                    firebaseRemoteConfig.activateFetched()
+                    firebaseRemoteConfig.activate()
                     Log.d(
                         "TAG",
                         "onComplete: " + firebaseRemoteConfig.getString("banner_facebook_ads")

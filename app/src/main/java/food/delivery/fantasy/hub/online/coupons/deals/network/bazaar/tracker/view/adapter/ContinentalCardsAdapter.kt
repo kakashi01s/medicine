@@ -27,7 +27,7 @@ class ContinentalCardsAdapter(val context: Context?, val cardsList: List<List<St
         holder.ivCardIcon.setOnClickListener{
             continentalCardsListener.onContinentalCardClick(cardsList.get(position))
         }
-        holder.tvCardName.setOnClickListener{
+        holder.ivCardIcon.setOnClickListener{
             continentalCardsListener.onContinentalCardClick(cardsList.get(position))
         }
     }
