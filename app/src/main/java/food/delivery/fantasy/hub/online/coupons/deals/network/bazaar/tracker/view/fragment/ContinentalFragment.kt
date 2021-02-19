@@ -113,7 +113,7 @@ class ContinentalFragment : BaseFragment(), ContinentalCardsListener,Continental
     }
 
     fun onShowDialog(List: ArrayList<List<String>>) {
-        val dialog = Dialog(context!!,R.style.DialogTheme)
+        val dialog = Dialog(context!!,R.style.Theme_MaterialComponents_Light_NoActionBar)
         dialog.setContentView(R.layout.dialog_show)
         rvDialog = dialog.findViewById(R.id.rvDailog)
 
