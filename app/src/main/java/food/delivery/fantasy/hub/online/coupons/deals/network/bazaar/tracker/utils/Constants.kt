@@ -7,73 +7,26 @@ class Constants {
 
     val SHOW_ADS = "show_ads"
 
-    val ADMOB_NATIVE_TEST = "ca-app-pub-3940256099942544/2247696110"
-    val ADMOB_BANNER_TEST = "ca-app-pub-3940256099942544/6300978111"
-    val ADMOB_INTERSTITIAL_TEST = "ca-app-pub-3940256099942544/1033173712"
-    val ADMOB_NATIVE_HOME_1 = "ca-app-pub-9928966600221551/1829042715"
-    val ADMOB_NATIVE_HOME_2 = "ca-app-pub-9928966600221551/4263634363"
-    val ADMOB_NATIVE_CAT_1 = "ca-app-pub-9928966600221551/1637471027"
-    val ADMOB_NATIVE_CAT_2 = "ca-app-pub-9928966600221551/4072062671"
-    val ADMOB_BANNER_WEB = "ca-app-pub-9928966600221551/5550162854"
-    val ADMOB_INTERSTITIAL_WEB_EXIT = "ca-app-pub-9928966600221551/4366564381"
 
 
 
     val FB_ADS_TEST = "VID_HD_9_16_39S_APP_INSTALL#YOUR_PLACEMENT_ID"
     val FB_BANNER_TEST = "IMG_16_9_APP_INSTALL#YOUR_PLACEMENT_ID"
-    val FB_NATIVE_HOME_1 = "828299311359097_828300171359011"
-    val FB_NATIVE_HOME_2 = "828299311359097_828300171359011"
-    val FB_NATIVE_TOOL_1 = "828299311359097_828300171359011"
-    val FB_NATIVE_TOOL_2 = "828299311359097_828300171359011"
-    val FB_NATIVE_TOOL_3 = "828299311359097_828300171359011"
-    val FB_NATIVE_CAT_1 = "828299311359097_828300171359011"
-    val FB_NATIVE_CAT_2 = "828299311359097_828300171359011"
-    val FB_NATIVE_CAT_3 = "828299311359097_828300171359011"
-    val FB_NATIVE_CAT_4 = "828299311359097_828300171359011"
+    val FB_NATIVE_HOME_1 = "2960593130851961_2960594644185143"
+    val FB_NATIVE_HOME_2 = "2960593130851961_2960596004185007"
+    val FB_NATIVE_TOOL_1 = "2960593130851961_2960630357514905"
+    val FB_NATIVE_TOOL_2 = "2960593130851961_2960630677514873"
+    val FB_NATIVE_TOOL_3 = "2960593130851961_3003510523226888"
+    val FB_NATIVE_CAT_1 = "2960593130851961_2960596304184977"
+    val FB_NATIVE_CAT_2 = "2960593130851961_2960596554184952"
+    val FB_NATIVE_CAT_3 = "2960593130851961_2960596874184920"
+    val FB_NATIVE_CAT_4 = "2960593130851961_2960597040851570"
+    val FB_NATIVE_CAT_5 = "2960593130851961_3003510053226935"
+    val FB_NATIVE_DAILOG = "2960593130851961_2960597260851548"
+    val FB_NATIVE_CONTINENTAL_1 = "2960593130851961_3003511659893441"
+    val FB_BANNER_WEB = "2960593130851961_2960598894184718"
+    val FB_INTERSTITIAL_WEB_EXIT = "2960593130851961_2960599650851309"
 
-    val FB_NATIVE_CONTINENTAL_1 = "2779097785741248_2779099615741065"
-
-    fun getNativeHome1(): String{
-        return if (BuildConfig.DEBUG)
-            ADMOB_NATIVE_TEST
-        else
-            ADMOB_NATIVE_HOME_1
-    }
-
-    fun getNativeHome2(): String{
-        return if (BuildConfig.DEBUG)
-            ADMOB_NATIVE_TEST
-        else
-            ADMOB_NATIVE_HOME_2
-    }
-
-    fun getNativeCat1(): String{
-        return if (BuildConfig.DEBUG)
-            ADMOB_NATIVE_TEST
-        else
-            ADMOB_NATIVE_CAT_1
-    }
-
-    fun getNativeCat2(): String{
-        return if (BuildConfig.DEBUG)
-            ADMOB_NATIVE_TEST
-        else
-            ADMOB_NATIVE_CAT_2
-    }
-
-    fun getBannerWeb(): String{
-        return if (BuildConfig.DEBUG)
-            ADMOB_BANNER_TEST
-        else
-            ADMOB_BANNER_WEB
-    }
-
-    fun getInterstitialWebExit(): String{
-        return if (BuildConfig.DEBUG)
-            ADMOB_INTERSTITIAL_TEST
-        else
-            ADMOB_INTERSTITIAL_WEB_EXIT
-    }
     fun getFbNativeHome1(): String {
         return if (BuildConfig.DEBUG)
             FB_ADS_TEST
@@ -141,6 +94,32 @@ class Constants {
             FB_NATIVE_CAT_4
     }
 
+    fun getFbNativeCat5(): String {
+        return if (BuildConfig.DEBUG)
+            FB_ADS_TEST
+        else
+            FB_NATIVE_CAT_5
+    }
+
+    fun getFbNativeDailog(): String {
+        return if (BuildConfig.DEBUG)
+            FB_ADS_TEST
+        else
+            FB_NATIVE_DAILOG
+    }
+    fun getFbBannerWeb(): String {
+        return if (BuildConfig.DEBUG)
+            FB_BANNER_TEST
+        else
+            FB_BANNER_WEB
+    }
+
+    fun getFbInterstitialWebExit(): String {
+        return if (BuildConfig.DEBUG)
+            FB_ADS_TEST
+        else
+            FB_INTERSTITIAL_WEB_EXIT
+    }
 
 
 }

@@ -59,6 +59,8 @@ class ContinentalFragment : BaseFragment(), ContinentalCardsListener,Continental
     var continentalCardsList: ArrayList<List<String>>? = ArrayList()
     var dialogList: ArrayList<List<String>>? = ArrayList()
     private var nativeAdFB1: NativeAd? = null
+    private var nativeAdFB2: NativeAd? = null
+
     private var nativeAdLayout: NativeAdLayout? = null
     private var adView: LinearLayout? = null
 
@@ -100,7 +102,10 @@ class ContinentalFragment : BaseFragment(), ContinentalCardsListener,Continental
             continentalCardsList!!.addAll(t!!)
             continentalCardsAdapter!!.notifyDataSetChanged()
         })
-    }
+        if (firebaseRemoteConfig!!.getBoolean(Constants().SHOW_ADS)) {
+            onLoadFBNativeAd1(view, context!!)
+        }
+        }
 
     fun initViews(view: View){
         firebaseAnalytics = FirebaseAnalytics.getInstance(activity!!)
@@ -110,12 +115,16 @@ class ContinentalFragment : BaseFragment(), ContinentalCardsListener,Continental
     fun onShowDialog(List: ArrayList<List<String>>) {
         val dialog = Dialog(context!!,R.style.DialogTheme)
         dialog.setContentView(R.layout.dialog_show)
-        rvDialog = dialog.findViewById(R.id.rvDialog)
+        rvDialog = dialog.findViewById(R.id.rvDailog)
 
         continentalDialogAdapter = ContinentalDialogAdapter(context, List,this)
         rvDialog.apply {
             rvDialog?.layoutManager = GridLayoutManager(context!!,3)
             rvDialog?.adapter = continentalDialogAdapter
+            if(firebaseRemoteConfig!!.getBoolean(Constants().SHOW_ADS)){
+                onLoadFBNativeAdCatDailog( context!!, dialog!!)
+            }
+
         }
         dialog.show()
     }
@@ -143,7 +152,7 @@ class ContinentalFragment : BaseFragment(), ContinentalCardsListener,Continental
                 // Inflate Native Ad into Container
 
                 // Add the Ad view into the ad container.
-                nativeAdLayout = view.findViewById(R.id.native_ad_container_home_1)
+                nativeAdLayout = view.findViewById(R.id.native_ad_container_continental_1)
                 val inflater = LayoutInflater.from(context)
                 // Inflate the Ad view.  The layout referenced should be the one you created in the last step.
                 adView =
@@ -177,6 +186,61 @@ class ContinentalFragment : BaseFragment(), ContinentalCardsListener,Continental
 
         nativeAdFB1!!.loadAd(
                 nativeAdFB1!!.buildLoadAdConfig()
+                        .withAdListener(nativeAdListener)
+                        .build()
+        );
+    }
+
+    fun onLoadFBNativeAdCatDailog( context: Context, dialog: Dialog) {
+        nativeAdFB2 = NativeAd(context, Constants().getFbNativeDailog())
+        val nativeAdListener: NativeAdListener = object : NativeAdListener {
+            override fun onError(p0: Ad?, p1: AdError?) {
+                Log.d("TAG", "onError: onLoadFBNativeAd1 " + p1!!.errorMessage)
+            }
+
+            override fun onAdLoaded(ad: Ad?) {
+
+                // Race condition, load() called again before last ad was displayed
+                if (nativeAdFB2 == null || nativeAdFB2 !== ad) {
+                    return
+                }
+                // Inflate Native Ad into Container
+
+                // Add the Ad view into the ad container.
+                nativeAdLayout = dialog.findViewById(R.id.native_ad_container_topic_dailog)
+                val inflater = LayoutInflater.from(context)
+                // Inflate the Ad view.  The layout referenced should be the one you created in the last step.
+                adView =
+                        inflater.inflate(
+                                R.layout.native_ad_layout,
+                                nativeAdLayout,
+                                false
+                        ) as LinearLayout
+                nativeAdLayout!!.addView(adView)
+
+                inflateAd(nativeAdFB2!!, adView!!)
+
+                val adChoicesContainer: LinearLayout = dialog.findViewById(R.id.ad_choices_container)
+                val adOptionsView = AdOptionsView(context, nativeAdFB2, nativeAdLayout)
+                adChoicesContainer.removeAllViews()
+                adChoicesContainer.addView(adOptionsView, 0)
+            }
+
+            override fun onAdClicked(p0: Ad?) {
+                Log.d("TAG", "onAdClicked: onLoadFBNativeAd1")
+            }
+
+            override fun onLoggingImpression(p0: Ad?) {
+                Log.d("TAG", "onLoggingImpression: onLoadFBNativeAd1")
+            }
+
+            override fun onMediaDownloaded(p0: Ad?) {
+                Log.d("TAG", "onMediaDownloaded: onLoadFBNativeAd1")
+            }
+        }
+
+        nativeAdFB2!!.loadAd(
+                nativeAdFB2!!.buildLoadAdConfig()
                         .withAdListener(nativeAdListener)
                         .build()
         );
