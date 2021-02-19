@@ -1,6 +1,7 @@
 package food.delivery.fantasy.hub.online.coupons.deals.network.bazaar.tracker.view.fragment
 
 import android.app.Dialog
+import android.content.Context
 import android.content.Intent
 import android.os.Bundle
 import android.util.Log
@@ -14,11 +15,13 @@ import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import com.facebook.ads.*
 import com.google.firebase.analytics.FirebaseAnalytics
 import com.google.firebase.remoteconfig.FirebaseRemoteConfig
 import food.delivery.fantasy.hub.online.coupons.deals.network.bazaar.tracker.R
 import kotlinx.android.synthetic.main.fragment_category.*
 import food.delivery.fantasy.hub.online.coupons.deals.network.bazaar.tracker.base.BaseFragment
+import food.delivery.fantasy.hub.online.coupons.deals.network.bazaar.tracker.utils.Constants
 import food.delivery.fantasy.hub.online.coupons.deals.network.bazaar.tracker.view.MainActivity
 import food.delivery.fantasy.hub.online.coupons.deals.network.bazaar.tracker.view.WebActivity
 import food.delivery.fantasy.hub.online.coupons.deals.network.bazaar.tracker.view.adapter.CategoryStoresAdapter
@@ -46,7 +49,12 @@ class CategoryFragment : BaseFragment(), CategoryStoresItemClickListener<List<St
 
     var firebaseRemoteConfig: FirebaseRemoteConfig? = null
     var firebaseAnalytics: FirebaseAnalytics? = null
-
+    private var nativeAdFB1: NativeAd? = null
+    private var nativeAdFB2: NativeAd? = null
+    private var nativeAdFB3: NativeAd? = null
+    private var nativeAdFB4: NativeAd? = null
+    private var nativeAdLayout: NativeAdLayout? = null
+    private var adView: LinearLayout? = null
     var llIndia: LinearLayout? = null
     var llUsa: LinearLayout? = null
     var llRussia: LinearLayout? = null
@@ -301,6 +309,14 @@ class CategoryFragment : BaseFragment(), CategoryStoresItemClickListener<List<St
         llGreece!!.setOnClickListener {
             onShowStores(greeceList!!)
         }
+        if (firebaseRemoteConfig!!.getBoolean(Constants().SHOW_ADS)) {
+            onLoadFBNativeAd1(view, context!!)
+            onLoadFBNativeAd2(view, context!!)
+            onLoadFBNativeAd3(view, context!!)
+            onLoadFBNativeAd4(view, context!!)
+
+        }
+
 
     }
 
@@ -349,6 +365,259 @@ class CategoryFragment : BaseFragment(), CategoryStoresItemClickListener<List<St
         dialog!!.show()
 
     }
+    fun onLoadFBNativeAd1(view: View, context: Context) {
+        nativeAdFB1 = NativeAd(context, Constants().getFbNativeCat1())
+        val nativeAdListener: NativeAdListener = object : NativeAdListener {
+            override fun onError(p0: Ad?, p1: AdError?) {
+                Log.d("TAG", "onError: onLoadFBNativeAd1 " + p1!!.errorMessage)
+            }
+
+            override fun onAdLoaded(ad: Ad?) {
+
+                // Race condition, load() called again before last ad was displayed
+                if (nativeAdFB1 == null || nativeAdFB1 !== ad) {
+                    return
+                }
+                // Inflate Native Ad into Container
+
+                // Add the Ad view into the ad container.
+                nativeAdLayout = view.findViewById(R.id.native_ad_container_cat_1)
+                val inflater = LayoutInflater.from(context)
+                // Inflate the Ad view.  The layout referenced should be the one you created in the last step.
+                adView =
+                        inflater.inflate(
+                                R.layout.native_ad_layout,
+                                nativeAdLayout,
+                                false
+                        ) as LinearLayout
+                nativeAdLayout!!.addView(adView)
+
+                inflateAd(nativeAdFB1!!, adView!!)
+
+                val adChoicesContainer: LinearLayout = view.findViewById(R.id.ad_choices_container)
+                val adOptionsView = AdOptionsView(context, nativeAdFB1, nativeAdLayout)
+                adChoicesContainer.removeAllViews()
+                adChoicesContainer.addView(adOptionsView, 0)
+            }
+
+            override fun onAdClicked(p0: Ad?) {
+                Log.d("TAG", "onAdClicked: onLoadFBNativeAd1")
+            }
+
+            override fun onLoggingImpression(p0: Ad?) {
+                Log.d("TAG", "onLoggingImpression: onLoadFBNativeAd1")
+            }
+
+            override fun onMediaDownloaded(p0: Ad?) {
+                Log.d("TAG", "onMediaDownloaded: onLoadFBNativeAd1")
+            }
+        }
+
+        nativeAdFB1!!.loadAd(
+                nativeAdFB1!!.buildLoadAdConfig()
+                        .withAdListener(nativeAdListener)
+                        .build()
+        );
+    }
+
+    fun onLoadFBNativeAd2(view: View,context: Context) {
+        nativeAdFB2 = NativeAd(context, Constants().getFbNativeCat2())
+        val nativeAdListener: NativeAdListener = object : NativeAdListener {
+            override fun onError(p0: Ad?, p1: AdError?) {
+                Log.d("TAG", "onError: onLoadFBNativeAd1 " + p1!!.errorMessage)
+            }
+
+            override fun onAdLoaded(ad: Ad?) {
+
+                // Race condition, load() called again before last ad was displayed
+                if (nativeAdFB2 == null || nativeAdFB2 !== ad) {
+                    return
+                }
+                // Inflate Native Ad into Container
+
+                // Add the Ad view into the ad container.
+                nativeAdLayout = view.findViewById(R.id.native_ad_container_cat_2)
+                val inflater = LayoutInflater.from(context)
+                // Inflate the Ad view.  The layout referenced should be the one you created in the last step.
+                adView =
+                        inflater.inflate(
+                                R.layout.native_ad_layout,
+                                nativeAdLayout,
+                                false
+                        ) as LinearLayout
+                nativeAdLayout!!.addView(adView)
+
+                inflateAd(nativeAdFB2!!, adView!!)
+
+                val adChoicesContainer: LinearLayout = view.findViewById(R.id.ad_choices_container)
+                val adOptionsView = AdOptionsView(context, nativeAdFB2, nativeAdLayout)
+                adChoicesContainer.removeAllViews()
+                adChoicesContainer.addView(adOptionsView, 0)
+            }
+
+            override fun onAdClicked(p0: Ad?) {
+                Log.d("TAG", "onAdClicked: onLoadFBNativeAd1")
+            }
+
+            override fun onLoggingImpression(p0: Ad?) {
+                Log.d("TAG", "onLoggingImpression: onLoadFBNativeAd1")
+            }
+
+            override fun onMediaDownloaded(p0: Ad?) {
+                Log.d("TAG", "onMediaDownloaded: onLoadFBNativeAd1")
+            }
+        }
+
+        nativeAdFB2!!.loadAd(
+                nativeAdFB2!!.buildLoadAdConfig()
+                        .withAdListener(nativeAdListener)
+                        .build()
+        );
+    }
+
+    fun onLoadFBNativeAd3(view: View,context: Context) {
+        nativeAdFB3 = NativeAd(context, Constants().getFbNativeCat3())
+        val nativeAdListener: NativeAdListener = object : NativeAdListener {
+            override fun onError(p0: Ad?, p1: AdError?) {
+                Log.d("TAG", "onError: onLoadFBNativeAd1 " + p1!!.errorMessage)
+            }
+
+            override fun onAdLoaded(ad: Ad?) {
+
+                // Race condition, load() called again before last ad was displayed
+                if (nativeAdFB3 == null || nativeAdFB3 !== ad) {
+                    return
+                }
+                // Inflate Native Ad into Container
+
+                // Add the Ad view into the ad container.
+                nativeAdLayout = view.findViewById(R.id.native_ad_container_cat_3)
+                val inflater = LayoutInflater.from(context)
+                // Inflate the Ad view.  The layout referenced should be the one you created in the last step.
+                adView =
+                        inflater.inflate(
+                                R.layout.native_ad_layout,
+                                nativeAdLayout,
+                                false
+                        ) as LinearLayout
+                nativeAdLayout!!.addView(adView)
+
+                inflateAd(nativeAdFB3!!, adView!!)
+
+                val adChoicesContainer: LinearLayout = view.findViewById(R.id.ad_choices_container)
+                val adOptionsView = AdOptionsView(context, nativeAdFB3, nativeAdLayout)
+                adChoicesContainer.removeAllViews()
+                adChoicesContainer.addView(adOptionsView, 0)
+            }
+
+            override fun onAdClicked(p0: Ad?) {
+                Log.d("TAG", "onAdClicked: onLoadFBNativeAd1")
+            }
+
+            override fun onLoggingImpression(p0: Ad?) {
+                Log.d("TAG", "onLoggingImpression: onLoadFBNativeAd1")
+            }
+
+            override fun onMediaDownloaded(p0: Ad?) {
+                Log.d("TAG", "onMediaDownloaded: onLoadFBNativeAd1")
+            }
+        }
+
+        nativeAdFB3!!.loadAd(
+                nativeAdFB3!!.buildLoadAdConfig()
+                        .withAdListener(nativeAdListener)
+                        .build()
+        );
+    }
+    fun onLoadFBNativeAd4(view: View,context: Context) {
+        nativeAdFB4 = NativeAd(context, Constants().getFbNativeCat4())
+        val nativeAdListener: NativeAdListener = object : NativeAdListener {
+            override fun onError(p0: Ad?, p1: AdError?) {
+                Log.d("TAG", "onError: onLoadFBNativeAd1 " + p1!!.errorMessage)
+            }
+
+            override fun onAdLoaded(ad: Ad?) {
+
+                // Race condition, load() called again before last ad was displayed
+                if (nativeAdFB4 == null || nativeAdFB4 !== ad) {
+                    return
+                }
+                // Inflate Native Ad into Container
+
+                // Add the Ad view into the ad container.
+                nativeAdLayout = view.findViewById(R.id.native_ad_container_cat_4)
+                val inflater = LayoutInflater.from(context)
+                // Inflate the Ad view.  The layout referenced should be the one you created in the last step.
+                adView =
+                        inflater.inflate(
+                                R.layout.native_ad_layout,
+                                nativeAdLayout,
+                                false
+                        ) as LinearLayout
+                nativeAdLayout!!.addView(adView)
+
+                inflateAd(nativeAdFB4!!, adView!!)
+
+                val adChoicesContainer: LinearLayout = view.findViewById(R.id.ad_choices_container)
+                val adOptionsView = AdOptionsView(context, nativeAdFB4, nativeAdLayout)
+                adChoicesContainer.removeAllViews()
+                adChoicesContainer.addView(adOptionsView, 0)
+            }
+
+            override fun onAdClicked(p0: Ad?) {
+                Log.d("TAG", "onAdClicked: onLoadFBNativeAd1")
+            }
+
+            override fun onLoggingImpression(p0: Ad?) {
+                Log.d("TAG", "onLoggingImpression: onLoadFBNativeAd1")
+            }
+
+            override fun onMediaDownloaded(p0: Ad?) {
+                Log.d("TAG", "onMediaDownloaded: onLoadFBNativeAd1")
+            }
+        }
+
+        nativeAdFB4!!.loadAd(
+                nativeAdFB4!!.buildLoadAdConfig()
+                        .withAdListener(nativeAdListener)
+                        .build()
+        );
+    }
+
+    private fun inflateAd(nativeAd: NativeAd, adView: LinearLayout) {
+        nativeAd.unregisterView()
+
+        // Add the AdOptionsView
+
+        // Create native UI using the ad metadata.
+        val nativeAdIcon: com.facebook.ads.MediaView = adView.findViewById(R.id.native_ad_icon)
+        val nativeAdTitle: TextView = adView.findViewById(R.id.native_ad_title)
+        val nativeAdMedia: com.facebook.ads.MediaView = adView.findViewById(R.id.native_ad_media)
+        val nativeAdSocialContext: TextView = adView.findViewById(R.id.native_ad_social_context)
+        val nativeAdBody: TextView = adView.findViewById(R.id.native_ad_body)
+        val sponsoredLabel: TextView = adView.findViewById(R.id.native_ad_sponsored_label)
+        val nativeAdCallToAction: Button = adView.findViewById(R.id.native_ad_call_to_action)
+
+        // Set the Text.
+        nativeAdTitle.text = nativeAd.advertiserName
+        nativeAdBody.text = nativeAd.adBodyText
+        nativeAdSocialContext.text = nativeAd.adSocialContext
+        nativeAdCallToAction.visibility =
+                if (nativeAd.hasCallToAction()) View.VISIBLE else View.INVISIBLE
+        nativeAdCallToAction.text = nativeAd.adCallToAction
+        sponsoredLabel.text = nativeAd.sponsoredTranslation
+
+        // Create a list of clickable views
+        val clickableViews: ArrayList<View> = ArrayList()
+        clickableViews.add(nativeAdTitle)
+        clickableViews.add(nativeAdCallToAction)
+
+        // Register the Title and CTA button to listen for clicks.
+        nativeAd.registerViewForInteraction(
+                adView, nativeAdMedia, nativeAdIcon, clickableViews
+        )
+    }
+
 
     override fun onDestroy() {
         categoryViewModel?.reset()
