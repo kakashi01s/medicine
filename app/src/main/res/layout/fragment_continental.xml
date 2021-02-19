@@ -11,14 +11,29 @@
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_height="wrap_content"
         android:orientation="vertical">
 
         <androidx.recyclerview.widget.RecyclerView
-            android:layout_height="match_parent"
+            android:layout_height="wrap_content"
             android:layout_width="match_parent"
             android:id="@+id/rvContinental"
             android:background="@color/white"/>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <com.facebook.ads.NativeAdLayout
+                android:id="@+id/native_ad_container_continental_1"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:layout_marginTop="12dp"
+                android:layout_marginBottom="12dp"
+                />
+
+        </LinearLayout>
+
 
     </LinearLayout>
 

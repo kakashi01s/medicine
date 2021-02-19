@@ -17,6 +17,22 @@ class Constants {
     val ADMOB_BANNER_WEB = "ca-app-pub-9928966600221551/5550162854"
     val ADMOB_INTERSTITIAL_WEB_EXIT = "ca-app-pub-9928966600221551/4366564381"
 
+
+
+    val FB_ADS_TEST = "VID_HD_9_16_39S_APP_INSTALL#YOUR_PLACEMENT_ID"
+    val FB_BANNER_TEST = "IMG_16_9_APP_INSTALL#YOUR_PLACEMENT_ID"
+    val FB_NATIVE_HOME_1 = "828299311359097_828300171359011"
+    val FB_NATIVE_HOME_2 = "828299311359097_828300171359011"
+    val FB_NATIVE_TOOL_1 = "828299311359097_828300171359011"
+    val FB_NATIVE_TOOL_2 = "828299311359097_828300171359011"
+    val FB_NATIVE_TOOL_3 = "828299311359097_828300171359011"
+    val FB_NATIVE_CAT_1 = "828299311359097_828300171359011"
+    val FB_NATIVE_CAT_2 = "828299311359097_828300171359011"
+    val FB_NATIVE_CAT_3 = "828299311359097_828300171359011"
+    val FB_NATIVE_CAT_4 = "828299311359097_828300171359011"
+
+    val FB_NATIVE_CONTINENTAL_1 = "2779097785741248_2779099615741065"
+
     fun getNativeHome1(): String{
         return if (BuildConfig.DEBUG)
             ADMOB_NATIVE_TEST
@@ -58,8 +74,72 @@ class Constants {
         else
             ADMOB_INTERSTITIAL_WEB_EXIT
     }
+    fun getFbNativeHome1(): String {
+        return if (BuildConfig.DEBUG)
+            FB_ADS_TEST
+        else
+            FB_NATIVE_HOME_1
+    }
 
+    fun getFbNativeHome2(): String {
+        return if (BuildConfig.DEBUG)
+            FB_ADS_TEST
+        else
+            FB_NATIVE_HOME_2
+    }
 
+    fun getFbNativeContinental(): String {
+        return if (BuildConfig.DEBUG)
+            FB_ADS_TEST
+        else
+            FB_NATIVE_CONTINENTAL_1
+    }
+    fun getFbNativeTool1(): String {
+        return if (BuildConfig.DEBUG)
+            FB_ADS_TEST
+        else
+            FB_NATIVE_TOOL_1
+    }
+
+    fun getFbNativeTool2(): String {
+        return if (BuildConfig.DEBUG)
+            FB_ADS_TEST
+        else
+            FB_NATIVE_TOOL_2
+    }
+    fun getFbNativeTool3(): String {
+        return if (BuildConfig.DEBUG)
+            FB_ADS_TEST
+        else
+            FB_NATIVE_TOOL_3
+    }
+
+    fun getFbNativeCat1(): String {
+        return if (BuildConfig.DEBUG)
+            FB_ADS_TEST
+        else
+            FB_NATIVE_CAT_1
+    }
+
+    fun getFbNativeCat2(): String {
+        return if (BuildConfig.DEBUG)
+            FB_ADS_TEST
+        else
+            FB_NATIVE_CAT_2
+    }
+    fun getFbNativeCat3(): String {
+        return if (BuildConfig.DEBUG)
+            FB_ADS_TEST
+        else
+            FB_NATIVE_CAT_3
+    }
+
+    fun getFbNativeCat4(): String {
+        return if (BuildConfig.DEBUG)
+            FB_ADS_TEST
+        else
+            FB_NATIVE_CAT_4
+    }
 
 
 
