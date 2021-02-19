@@ -53,6 +53,9 @@ class CategoryFragment : BaseFragment(), CategoryStoresItemClickListener<List<St
     private var nativeAdFB2: NativeAd? = null
     private var nativeAdFB3: NativeAd? = null
     private var nativeAdFB4: NativeAd? = null
+    private var nativeAdFB5: NativeAd? = null
+    private var nativeAdFB6: NativeAd? = null
+
     private var nativeAdLayout: NativeAdLayout? = null
     private var adView: LinearLayout? = null
     var llIndia: LinearLayout? = null
@@ -244,76 +247,77 @@ class CategoryFragment : BaseFragment(), CategoryStoresItemClickListener<List<St
         })
 
         llIndia!!.setOnClickListener {
-            onShowStores(indiaList!!)
+            onShowStores(indiaList!!,view)
         }
         llUsa!!.setOnClickListener {
-            onShowStores(usaList!!)
+            onShowStores(usaList!!,view)
         }
         llRussia!!.setOnClickListener {
-            onShowStores(russiaList!!)
+            onShowStores(russiaList!!,view)
         }
         llPakistan!!.setOnClickListener {
-            onShowStores(pakistanList!!)
+            onShowStores(pakistanList!!,view)
         }
         llChina!!.setOnClickListener {
-            onShowStores(chinaList!!)
+            onShowStores(chinaList!!,view)
         }
         llGermany!!.setOnClickListener {
-            onShowStores(germanyList!!)
+            onShowStores(germanyList!!,view)
         }
         llTurkey!!.setOnClickListener {
-            onShowStores(turkeyList!!)
+            onShowStores(turkeyList!!,view)
         }
         llUae!!.setOnClickListener {
-            onShowStores(uaeList!!)
+            onShowStores(uaeList!!,view)
         }
         llItaly!!.setOnClickListener {
-            onShowStores(italyList!!)
+            onShowStores(italyList!!,view)
         }
         llSwitzerland!!.setOnClickListener {
-            onShowStores(switzerlandList!!)
+            onShowStores(switzerlandList!!,view)
         }
         llCanada!!.setOnClickListener {
-            onShowStores(canadaList!!)
+            onShowStores(canadaList!!,view)
         }
         llSingapore!!.setOnClickListener {
-            onShowStores(singaporeList!!)
+            onShowStores(singaporeList!!,view)
         }
         llSouthAfrica!!.setOnClickListener {
-            onShowStores(southAfricaList!!)
+            onShowStores(southAfricaList!!,view)
         }
         llFrance!!.setOnClickListener {
-            onShowStores(franceList!!)
+            onShowStores(franceList!!,view)
         }
         llIndonesia!!.setOnClickListener {
-            onShowStores(indonesiaList!!)
+            onShowStores(indonesiaList!!,view)
         }
         llUk!!.setOnClickListener {
-            onShowStores(ukList!!)
+            onShowStores(ukList!!,view)
         }
         llJapan!!.setOnClickListener {
-            onShowStores(japanList!!)
+            onShowStores(japanList!!,view)
         }
         llBrazil!!.setOnClickListener {
-            onShowStores(brazilList!!)
+            onShowStores(brazilList!!,view)
         }
         llNigeria!!.setOnClickListener {
-            onShowStores(nigeriaList!!)
+            onShowStores(nigeriaList!!,view)
         }
         llPortugal!!.setOnClickListener {
-            onShowStores(portugalList!!)
+            onShowStores(portugalList!!,view)
         }
         llAustralia!!.setOnClickListener {
-            onShowStores(australiaList!!)
+            onShowStores(australiaList!!,view)
         }
         llGreece!!.setOnClickListener {
-            onShowStores(greeceList!!)
+            onShowStores(greeceList!!,view)
         }
         if (firebaseRemoteConfig!!.getBoolean(Constants().SHOW_ADS)) {
             onLoadFBNativeAd1(view, context!!)
             onLoadFBNativeAd2(view, context!!)
             onLoadFBNativeAd3(view, context!!)
             onLoadFBNativeAd4(view, context!!)
+            onLoadFBNativeAd5(view, context!!)
 
         }
 
@@ -355,13 +359,17 @@ class CategoryFragment : BaseFragment(), CategoryStoresItemClickListener<List<St
         }
     }
 
-    fun onShowStores(list: ArrayList<List<String>>){
+    fun onShowStores(list: ArrayList<List<String>>, view: View){
         dialog!!.setContentView(R.layout.dialog_show_stores)
         dialog!!.window!!.setLayout(WindowManager.LayoutParams.MATCH_PARENT,
             WindowManager.LayoutParams.MATCH_PARENT);
         rvCategoryStores = dialog!!.findViewById(R.id.rvCategoryStores)
         setRecyclerView()
         categoryStoresAdapter!!.setItems(list)
+        if(firebaseRemoteConfig!!.getBoolean(Constants().SHOW_ADS)){
+            onLoadFBNativeAdCatDailog(view, context!!, dialog!!)
+        }
+
         dialog!!.show()
 
     }
@@ -583,6 +591,119 @@ class CategoryFragment : BaseFragment(), CategoryStoresItemClickListener<List<St
                         .build()
         );
     }
+
+    fun onLoadFBNativeAd5(view: View,context: Context) {
+        nativeAdFB5 = NativeAd(context, Constants().getFbNativeCat5())
+        val nativeAdListener: NativeAdListener = object : NativeAdListener {
+            override fun onError(p0: Ad?, p1: AdError?) {
+                Log.d("TAG", "onError: onLoadFBNativeAd1 " + p1!!.errorMessage)
+            }
+
+            override fun onAdLoaded(ad: Ad?) {
+
+                // Race condition, load() called again before last ad was displayed
+                if (nativeAdFB5 == null || nativeAdFB5 !== ad) {
+                    return
+                }
+                // Inflate Native Ad into Container
+
+                // Add the Ad view into the ad container.
+                nativeAdLayout = view.findViewById(R.id.native_ad_container_cat_5)
+                val inflater = LayoutInflater.from(context)
+                // Inflate the Ad view.  The layout referenced should be the one you created in the last step.
+                adView =
+                        inflater.inflate(
+                                R.layout.native_ad_layout,
+                                nativeAdLayout,
+                                false
+                        ) as LinearLayout
+                nativeAdLayout!!.addView(adView)
+
+                inflateAd(nativeAdFB5!!, adView!!)
+
+                val adChoicesContainer: LinearLayout = view.findViewById(R.id.ad_choices_container)
+                val adOptionsView = AdOptionsView(context, nativeAdFB5, nativeAdLayout)
+                adChoicesContainer.removeAllViews()
+                adChoicesContainer.addView(adOptionsView, 0)
+            }
+
+            override fun onAdClicked(p0: Ad?) {
+                Log.d("TAG", "onAdClicked: onLoadFBNativeAd1")
+            }
+
+            override fun onLoggingImpression(p0: Ad?) {
+                Log.d("TAG", "onLoggingImpression: onLoadFBNativeAd1")
+            }
+
+            override fun onMediaDownloaded(p0: Ad?) {
+                Log.d("TAG", "onMediaDownloaded: onLoadFBNativeAd1")
+            }
+        }
+
+        nativeAdFB5!!.loadAd(
+                nativeAdFB5!!.buildLoadAdConfig()
+                        .withAdListener(nativeAdListener)
+                        .build()
+        );
+    }
+
+    fun onLoadFBNativeAdCatDailog(view: View, context: Context, dialog: Dialog) {
+        nativeAdFB6 = NativeAd(context, Constants().getFbNativeDailog())
+        val nativeAdListener: NativeAdListener = object : NativeAdListener {
+            override fun onError(p0: Ad?, p1: AdError?) {
+                Log.d("TAG", "onError: onLoadFBNativeAd1 " + p1!!.errorMessage)
+            }
+
+            override fun onAdLoaded(ad: Ad?) {
+
+                // Race condition, load() called again before last ad was displayed
+                if (nativeAdFB6 == null || nativeAdFB6 !== ad) {
+                    return
+                }
+                // Inflate Native Ad into Container
+
+                // Add the Ad view into the ad container.
+                nativeAdLayout = dialog.findViewById(R.id.native_ad_container_topic_dailog)
+                val inflater = LayoutInflater.from(context)
+                // Inflate the Ad view.  The layout referenced should be the one you created in the last step.
+                adView =
+                        inflater.inflate(
+                                R.layout.native_ad_layout,
+                                nativeAdLayout,
+                                false
+                        ) as LinearLayout
+                nativeAdLayout!!.addView(adView)
+
+                inflateAd(nativeAdFB6!!, adView!!)
+
+                val adChoicesContainer: LinearLayout = dialog.findViewById(R.id.ad_choices_container)
+                val adOptionsView = AdOptionsView(context, nativeAdFB6, nativeAdLayout)
+                adChoicesContainer.removeAllViews()
+                adChoicesContainer.addView(adOptionsView, 0)
+            }
+
+            override fun onAdClicked(p0: Ad?) {
+                Log.d("TAG", "onAdClicked: onLoadFBNativeAd1")
+            }
+
+            override fun onLoggingImpression(p0: Ad?) {
+                Log.d("TAG", "onLoggingImpression: onLoadFBNativeAd1")
+            }
+
+            override fun onMediaDownloaded(p0: Ad?) {
+                Log.d("TAG", "onMediaDownloaded: onLoadFBNativeAd1")
+            }
+        }
+
+        nativeAdFB6!!.loadAd(
+                nativeAdFB6!!.buildLoadAdConfig()
+                        .withAdListener(nativeAdListener)
+                        .build()
+        );
+    }
+
+
+
 
     private fun inflateAd(nativeAd: NativeAd, adView: LinearLayout) {
         nativeAd.unregisterView()
