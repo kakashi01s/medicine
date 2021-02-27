@@ -16,13 +16,10 @@ class Constants {
     val FB_NATIVE_HOME_2 = "2960593130851961_2960596004185007"
     val FB_NATIVE_TOOL_1 = "2960593130851961_2960630357514905"
     val FB_NATIVE_TOOL_2 = "2960593130851961_2960630677514873"
-    val FB_NATIVE_TOOL_3 = "2960593130851961_3003510523226888"
     val FB_NATIVE_CAT_1 = "2960593130851961_2960596304184977"
     val FB_NATIVE_CAT_2 = "2960593130851961_2960596554184952"
     val FB_NATIVE_CAT_3 = "2960593130851961_2960596874184920"
-    val FB_NATIVE_CAT_4 = "2960593130851961_2960597040851570"
-    val FB_NATIVE_CAT_5 = "2960593130851961_3003510053226935"
-    val FB_NATIVE_DAILOG = "2960593130851961_2960597260851548"
+       val FB_NATIVE_DAILOG = "2960593130851961_2960597260851548"
     val FB_NATIVE_CONTINENTAL_1 = "2960593130851961_3003511659893441"
     val FB_BANNER_WEB = "2960593130851961_2960598894184718"
     val FB_INTERSTITIAL_WEB_EXIT = "2960593130851961_2960599650851309"
@@ -60,12 +57,6 @@ class Constants {
         else
             FB_NATIVE_TOOL_2
     }
-    fun getFbNativeTool3(): String {
-        return if (BuildConfig.DEBUG)
-            FB_ADS_TEST
-        else
-            FB_NATIVE_TOOL_3
-    }
 
     fun getFbNativeCat1(): String {
         return if (BuildConfig.DEBUG)
@@ -87,19 +78,6 @@ class Constants {
             FB_NATIVE_CAT_3
     }
 
-    fun getFbNativeCat4(): String {
-        return if (BuildConfig.DEBUG)
-            FB_ADS_TEST
-        else
-            FB_NATIVE_CAT_4
-    }
-
-    fun getFbNativeCat5(): String {
-        return if (BuildConfig.DEBUG)
-            FB_ADS_TEST
-        else
-            FB_NATIVE_CAT_5
-    }
 
     fun getFbNativeDailog(): String {
         return if (BuildConfig.DEBUG)

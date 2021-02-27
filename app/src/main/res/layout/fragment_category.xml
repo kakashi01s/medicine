@@ -137,20 +137,6 @@
 
 
         </LinearLayout>
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content">
-
-            <com.facebook.ads.NativeAdLayout
-                android:id="@+id/native_ad_container_cat_1"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="vertical"
-                android:layout_marginTop="12dp"
-                android:layout_marginBottom="12dp"
-                />
-
-        </LinearLayout>
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -227,6 +213,21 @@
                 android:layout_marginBottom="12dp"/>
 
         </LinearLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <com.facebook.ads.NativeAdLayout
+                android:id="@+id/native_ad_container_cat_1"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:layout_marginTop="12dp"
+                android:layout_marginBottom="12dp"
+                />
+
+        </LinearLayout>
+
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -288,20 +289,6 @@
 
             </LinearLayout>
 
-
-        </LinearLayout>
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content">
-
-            <com.facebook.ads.NativeAdLayout
-                android:id="@+id/native_ad_container_cat_2"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="vertical"
-                android:layout_marginTop="12dp"
-                android:layout_marginBottom="12dp"
-                />
 
         </LinearLayout>
 
@@ -435,7 +422,7 @@
             android:layout_height="wrap_content">
 
             <com.facebook.ads.NativeAdLayout
-                android:id="@+id/native_ad_container_cat_3"
+                android:id="@+id/native_ad_container_cat_2"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="vertical"
@@ -566,6 +553,7 @@
 
             </LinearLayout>
         </LinearLayout>
+
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -630,7 +618,7 @@
             android:layout_height="wrap_content">
 
             <com.facebook.ads.NativeAdLayout
-                android:id="@+id/native_ad_container_cat_4"
+                android:id="@+id/native_ad_container_cat_3"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="vertical"
@@ -760,20 +748,6 @@
                     android:layout_marginTop="10dp"/>
 
             </LinearLayout>
-        </LinearLayout>
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content">
-
-            <com.facebook.ads.NativeAdLayout
-                android:id="@+id/native_ad_container_cat_5"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="vertical"
-                android:layout_marginTop="12dp"
-                android:layout_marginBottom="12dp"
-                />
-
         </LinearLayout>
 
 
