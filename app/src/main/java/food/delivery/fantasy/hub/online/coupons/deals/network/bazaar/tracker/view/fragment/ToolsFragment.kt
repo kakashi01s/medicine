@@ -62,7 +62,6 @@ class ToolsFragment : Fragment(), LiveNewsItemClickListener<List<String>>,
     var cookingChannelsAdapter: CookingChannelsAdapter? = null
     private var nativeAdFB1: NativeAd? = null
     private var nativeAdFB2: NativeAd? = null
-    private var nativeAdFB3: NativeAd? = null
     private var nativeAdLayout: NativeAdLayout? = null
     private var adView: LinearLayout? = null
 
@@ -110,7 +109,7 @@ class ToolsFragment : Fragment(), LiveNewsItemClickListener<List<String>>,
         if (firebaseRemoteConfig!!.getBoolean(Constants().SHOW_ADS)) {
             onLoadFBNativeAd1(view, context!!)
             onLoadFBNativeAd2(view, context!!)
-            onLoadFBNativeAd3(view, context!!)
+
 
         }
 
@@ -256,60 +255,6 @@ class ToolsFragment : Fragment(), LiveNewsItemClickListener<List<String>>,
         );
     }
 
-    fun onLoadFBNativeAd3(view: View,context: Context) {
-        nativeAdFB3 = NativeAd(context, Constants().getFbNativeTool3())
-        val nativeAdListener: NativeAdListener = object : NativeAdListener {
-            override fun onError(p0: Ad?, p1: AdError?) {
-                Log.d("TAG", "onError: onLoadFBNativeAd1 " + p1!!.errorMessage)
-            }
-
-            override fun onAdLoaded(ad: Ad?) {
-
-                // Race condition, load() called again before last ad was displayed
-                if (nativeAdFB3 == null || nativeAdFB3 !== ad) {
-                    return
-                }
-                // Inflate Native Ad into Container
-
-                // Add the Ad view into the ad container.
-                nativeAdLayout = view.findViewById(R.id.native_ad_container_tool_3)
-                val inflater = LayoutInflater.from(context)
-                // Inflate the Ad view.  The layout referenced should be the one you created in the last step.
-                adView =
-                        inflater.inflate(
-                                R.layout.native_ad_layout,
-                                nativeAdLayout,
-                                false
-                        ) as LinearLayout
-                nativeAdLayout!!.addView(adView)
-
-                inflateAd(nativeAdFB3!!, adView!!)
-
-                val adChoicesContainer: LinearLayout = view.findViewById(R.id.ad_choices_container)
-                val adOptionsView = AdOptionsView(context, nativeAdFB3, nativeAdLayout)
-                adChoicesContainer.removeAllViews()
-                adChoicesContainer.addView(adOptionsView, 0)
-            }
-
-            override fun onAdClicked(p0: Ad?) {
-                Log.d("TAG", "onAdClicked: onLoadFBNativeAd1")
-            }
-
-            override fun onLoggingImpression(p0: Ad?) {
-                Log.d("TAG", "onLoggingImpression: onLoadFBNativeAd1")
-            }
-
-            override fun onMediaDownloaded(p0: Ad?) {
-                Log.d("TAG", "onMediaDownloaded: onLoadFBNativeAd1")
-            }
-        }
-
-        nativeAdFB3!!.loadAd(
-                nativeAdFB3!!.buildLoadAdConfig()
-                        .withAdListener(nativeAdListener)
-                        .build()
-        );
-    }
 
     private fun inflateAd(nativeAd: NativeAd, adView: LinearLayout) {
         nativeAd.unregisterView()
