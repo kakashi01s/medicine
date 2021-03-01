@@ -35,14 +35,11 @@
             android:name="org.apache.http.legacy"
             android:required="false" />
 
-        <meta-data
-            android:name="com.google.android.gms.ads.APPLICATION_ID"
-            android:value="ca-app-pub-9928966600221551~4216728448" />
-            
+
         <meta-data android:name="com.facebook.sdk.ApplicationId"
             android:value="@string/facebook_app_id"/>
 
-        <meta-data android:name="com.onesignal.NotificationOpened.DEFAULT" android:value="DISABLE" />
+        <meta-data android:name="com.onesignal.NotificationOpened.DEFAULT" android:value="ENABLE" />
 
     </application>
 </manifest>

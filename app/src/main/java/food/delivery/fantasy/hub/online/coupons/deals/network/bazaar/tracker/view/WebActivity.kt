@@ -21,9 +21,6 @@ import androidx.core.content.ContextCompat
 import com.bumptech.glide.Glide
 import com.bumptech.glide.load.engine.DiskCacheStrategy
 import com.facebook.ads.*
-import com.google.android.gms.ads.AdListener
-import com.google.android.gms.ads.AdRequest
-import com.google.android.gms.ads.InterstitialAd
 import com.google.firebase.remoteconfig.FirebaseRemoteConfig
 import food.delivery.fantasy.hub.online.coupons.deals.network.bazaar.tracker.R
 import food.delivery.fantasy.hub.online.coupons.deals.network.bazaar.tracker.utils.Constants

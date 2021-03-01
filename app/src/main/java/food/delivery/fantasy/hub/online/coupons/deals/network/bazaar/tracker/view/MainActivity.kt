@@ -22,6 +22,7 @@ import food.delivery.fantasy.hub.online.coupons.deals.network.bazaar.tracker.vie
 import food.delivery.fantasy.hub.online.coupons.deals.network.bazaar.tracker.viewpager.AppPagerAdapter
 
 class MainActivity : BaseActivity(), ForceUpdateChecker.OnUpdateNeededListener {
+    private val ONESIGNAL_APP_ID ="285284f8-5bc8-4f11-ad58-30ebde4dbec3"
     var viewPager: CustomViewPager? = null
     var viewPagerTab: TabLayout? =null
     var fragmentPagerAdapter: FragmentPagerAdapter ?= null
@@ -42,7 +43,9 @@ class MainActivity : BaseActivity(), ForceUpdateChecker.OnUpdateNeededListener {
         setupViewPager()
 
 //        ForceUpdateChecker().with(this)!!.onUpdateNeeded(this).check()
-
+        OneSignal.setLogLevel(OneSignal.LOG_LEVEL.VERBOSE, OneSignal.LOG_LEVEL.NONE);
+        OneSignal.initWithContext(this);
+        OneSignal.setAppId(ONESIGNAL_APP_ID);
         continentalViewModel = ViewModelProvider(this).get(ContinentalViewModel::class.java)
         homeViewModel = ViewModelProvider(this).get(HomeViewModel::class.java)
         categoryViewModel = ViewModelProvider(this).get(CategoryViewModel::class.java)

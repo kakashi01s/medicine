@@ -4,7 +4,6 @@ import android.content.Intent
 import android.util.Log
 import com.facebook.ads.AdSettings
 import com.facebook.ads.AudienceNetworkAds
-import com.google.android.gms.ads.MobileAds
 import com.google.android.gms.tasks.OnCompleteListener
 import com.google.firebase.remoteconfig.FirebaseRemoteConfig
 import com.onesignal.OneSignal
@@ -72,7 +71,6 @@ class Singleton : Application() {
             AdSettings.setIntegrationErrorMode(AdSettings.IntegrationErrorMode.INTEGRATION_ERROR_CRASH_DEBUG_MODE);
         }
 
-        MobileAds.initialize(this){}
 
         if (BuildConfig.DEBUG){
             AdSettings.setTestMode(true);
