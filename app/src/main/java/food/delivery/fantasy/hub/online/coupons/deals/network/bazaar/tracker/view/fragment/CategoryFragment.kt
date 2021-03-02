@@ -310,13 +310,23 @@ class CategoryFragment : BaseFragment(), CategoryStoresItemClickListener<List<St
         llGreece!!.setOnClickListener {
             onShowStores(greeceList!!,view)
         }
-        if (firebaseRemoteConfig!!.getBoolean(Constants().SHOW_ADS)) {
-            onLoadFBNativeAd1(view, context!!)
-            onLoadFBNativeAd2(view, context!!)
-            onLoadFBNativeAd3(view, context!!)
 
+    }
+
+    override fun setUserVisibleHint(isVisibleToUser: Boolean) {
+        super.setUserVisibleHint(isVisibleToUser)
+
+        if(isVisibleToUser){
+            if(firebaseRemoteConfig == null){
+                firebaseRemoteConfig = FirebaseRemoteConfig.getInstance()
+            }
+            if (firebaseRemoteConfig!!.getBoolean(Constants().SHOW_ADS)) {
+                onLoadFBNativeAd1(view!!, context!!)
+                onLoadFBNativeAd2(view!!, context!!)
+                onLoadFBNativeAd3(view!!, context!!)
+
+            }
         }
-
 
     }
 

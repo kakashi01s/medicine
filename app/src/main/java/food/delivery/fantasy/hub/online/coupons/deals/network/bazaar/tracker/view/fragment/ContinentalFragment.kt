@@ -41,7 +41,7 @@ private const val ARG_PARAM2 = "param2"
  * Use the [TopicsFragment.newInstance] factory method to
  * create an instance of this fragment.
  */
-class ContinentalFragment : BaseFragment(), ContinentalCardsListener,ContinentalDialogListener {
+class ContinentalFragment : BaseFragment(), ContinentalCardsListener, ContinentalDialogListener {
 
     private var param1: Int? = null
     private var param2: String? = null
@@ -102,40 +102,51 @@ class ContinentalFragment : BaseFragment(), ContinentalCardsListener,Continental
             continentalCardsList!!.addAll(t!!)
             continentalCardsAdapter!!.notifyDataSetChanged()
         })
-        if (firebaseRemoteConfig!!.getBoolean(Constants().SHOW_ADS)) {
-            onLoadFBNativeAd1(view, context!!)
-        }
-        }
 
-    fun initViews(view: View){
+    }
+
+    override fun setUserVisibleHint(isVisibleToUser: Boolean) {
+        super.setUserVisibleHint(isVisibleToUser)
+        if(isVisibleToUser){
+            if(firebaseRemoteConfig == null){
+                firebaseRemoteConfig = FirebaseRemoteConfig.getInstance()
+            }
+            if (firebaseRemoteConfig!!.getBoolean(Constants().SHOW_ADS)) {
+                onLoadFBNativeAd1(view!!, context!!)
+            }
+        }
+    }
+
+    fun initViews(view: View) {
         firebaseAnalytics = FirebaseAnalytics.getInstance(activity!!)
         rvContinental = view.findViewById(R.id.rvContinental)
     }
 
     fun onShowDialog(List: ArrayList<List<String>>) {
-        val dialog = Dialog(context!!,R.style.Theme_MaterialComponents_Light_NoActionBar)
+        val dialog = Dialog(context!!, R.style.Theme_MaterialComponents_Light_NoActionBar)
         dialog.setContentView(R.layout.dialog_show)
         rvDialog = dialog.findViewById(R.id.rvDailog)
 
-        continentalDialogAdapter = ContinentalDialogAdapter(context, List,this)
+        continentalDialogAdapter = ContinentalDialogAdapter(context, List, this)
         rvDialog.apply {
-            rvDialog?.layoutManager = GridLayoutManager(context!!,3)
+            rvDialog?.layoutManager = GridLayoutManager(context!!, 3)
             rvDialog?.adapter = continentalDialogAdapter
-            if(firebaseRemoteConfig!!.getBoolean(Constants().SHOW_ADS)){
-                onLoadFBNativeAdCatDailog( context!!, dialog!!)
+            if (firebaseRemoteConfig!!.getBoolean(Constants().SHOW_ADS)) {
+                onLoadFBNativeAdCatDailog(context!!, dialog!!)
             }
 
         }
         dialog.show()
     }
 
-    fun setRecyclerView(){
-        continentalCardsAdapter = ContinentalCardsAdapter(context, continentalCardsList!!,this)
+    fun setRecyclerView() {
+        continentalCardsAdapter = ContinentalCardsAdapter(context, continentalCardsList!!, this)
         rvContinental.apply {
-            rvContinental?.layoutManager = GridLayoutManager(context!!,2)
+            rvContinental?.layoutManager = GridLayoutManager(context!!, 2)
             rvContinental?.adapter = continentalCardsAdapter
         }
     }
+
     fun onLoadFBNativeAd1(view: View, context: Context) {
         nativeAdFB1 = NativeAd(context, Constants().getFbNativeContinental())
         val nativeAdListener: NativeAdListener = object : NativeAdListener {
@@ -156,11 +167,11 @@ class ContinentalFragment : BaseFragment(), ContinentalCardsListener,Continental
                 val inflater = LayoutInflater.from(context)
                 // Inflate the Ad view.  The layout referenced should be the one you created in the last step.
                 adView =
-                        inflater.inflate(
-                                R.layout.native_ad_layout,
-                                nativeAdLayout,
-                                false
-                        ) as LinearLayout
+                    inflater.inflate(
+                        R.layout.native_ad_layout,
+                        nativeAdLayout,
+                        false
+                    ) as LinearLayout
                 nativeAdLayout!!.addView(adView)
 
                 inflateAd(nativeAdFB1!!, adView!!)
@@ -185,13 +196,13 @@ class ContinentalFragment : BaseFragment(), ContinentalCardsListener,Continental
         }
 
         nativeAdFB1!!.loadAd(
-                nativeAdFB1!!.buildLoadAdConfig()
-                        .withAdListener(nativeAdListener)
-                        .build()
+            nativeAdFB1!!.buildLoadAdConfig()
+                .withAdListener(nativeAdListener)
+                .build()
         );
     }
 
-    fun onLoadFBNativeAdCatDailog( context: Context, dialog: Dialog) {
+    fun onLoadFBNativeAdCatDailog(context: Context, dialog: Dialog) {
         nativeAdFB2 = NativeAd(context, Constants().getFbNativeDailog())
         val nativeAdListener: NativeAdListener = object : NativeAdListener {
             override fun onError(p0: Ad?, p1: AdError?) {
@@ -211,16 +222,17 @@ class ContinentalFragment : BaseFragment(), ContinentalCardsListener,Continental
                 val inflater = LayoutInflater.from(context)
                 // Inflate the Ad view.  The layout referenced should be the one you created in the last step.
                 adView =
-                        inflater.inflate(
-                                R.layout.native_ad_layout,
-                                nativeAdLayout,
-                                false
-                        ) as LinearLayout
+                    inflater.inflate(
+                        R.layout.native_ad_layout,
+                        nativeAdLayout,
+                        false
+                    ) as LinearLayout
                 nativeAdLayout!!.addView(adView)
 
                 inflateAd(nativeAdFB2!!, adView!!)
 
-                val adChoicesContainer: LinearLayout = dialog.findViewById(R.id.ad_choices_container)
+                val adChoicesContainer: LinearLayout =
+                    dialog.findViewById(R.id.ad_choices_container)
                 val adOptionsView = AdOptionsView(context, nativeAdFB2, nativeAdLayout)
                 adChoicesContainer.removeAllViews()
                 adChoicesContainer.addView(adOptionsView, 0)
@@ -240,11 +252,12 @@ class ContinentalFragment : BaseFragment(), ContinentalCardsListener,Continental
         }
 
         nativeAdFB2!!.loadAd(
-                nativeAdFB2!!.buildLoadAdConfig()
-                        .withAdListener(nativeAdListener)
-                        .build()
+            nativeAdFB2!!.buildLoadAdConfig()
+                .withAdListener(nativeAdListener)
+                .build()
         );
     }
+
     private fun inflateAd(nativeAd: NativeAd, adView: LinearLayout) {
         nativeAd.unregisterView()
 
@@ -264,7 +277,7 @@ class ContinentalFragment : BaseFragment(), ContinentalCardsListener,Continental
         nativeAdBody.text = nativeAd.adBodyText
         nativeAdSocialContext.text = nativeAd.adSocialContext
         nativeAdCallToAction.visibility =
-                if (nativeAd.hasCallToAction()) View.VISIBLE else View.INVISIBLE
+            if (nativeAd.hasCallToAction()) View.VISIBLE else View.INVISIBLE
         nativeAdCallToAction.text = nativeAd.adCallToAction
         sponsoredLabel.text = nativeAd.sponsoredTranslation
 
@@ -275,7 +288,7 @@ class ContinentalFragment : BaseFragment(), ContinentalCardsListener,Continental
 
         // Register the Title and CTA button to listen for clicks.
         nativeAd.registerViewForInteraction(
-                adView, nativeAdMedia, nativeAdIcon, clickableViews
+            adView, nativeAdMedia, nativeAdIcon, clickableViews
         )
     }
 
@@ -320,10 +333,10 @@ class ContinentalFragment : BaseFragment(), ContinentalCardsListener,Continental
         val bundle = Bundle()
         bundle.putString("title", item.get(1))
         bundle.putString("url", item.get(2))
-        (activity as MainActivity?)!!.onUpdateLogEvent(bundle,"card_visited",true)
+        (activity as MainActivity?)!!.onUpdateLogEvent(bundle, "card_visited", true)
 
-        val intent: Intent? = Intent(activity,WebActivity::class.java)
-        intent?.putExtra("url",item.get(2))
+        val intent: Intent? = Intent(activity, WebActivity::class.java)
+        intent?.putExtra("url", item.get(2))
         startActivity(intent)
     }
 }

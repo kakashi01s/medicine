@@ -106,13 +106,21 @@ class ToolsFragment : Fragment(), LiveNewsItemClickListener<List<String>>,
             Log.d("NewsFrag", "NewsFragment Most $t")
            cookingChannelsAdapter?.setItems(t)
         })
-        if (firebaseRemoteConfig!!.getBoolean(Constants().SHOW_ADS)) {
-            onLoadFBNativeAd1(view, context!!)
-            onLoadFBNativeAd2(view, context!!)
 
+    }
 
+    override fun setUserVisibleHint(isVisibleToUser: Boolean) {
+        super.setUserVisibleHint(isVisibleToUser)
+
+        if(isVisibleToUser){
+            if(firebaseRemoteConfig == null){
+                firebaseRemoteConfig = FirebaseRemoteConfig.getInstance()
+            }
+            if (firebaseRemoteConfig!!.getBoolean(Constants().SHOW_ADS)) {
+                onLoadFBNativeAd1(view!!, context!!)
+                onLoadFBNativeAd2(view!!, context!!)
+            }
         }
-
 
     }
 

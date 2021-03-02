@@ -103,6 +103,7 @@ class HomeFragment : BaseFragment(), AllAppsItemClickListener<List<String>>,
         initViews(view)
 
         firebaseRemoteConfig = FirebaseRemoteConfig.getInstance()
+
         homeData = read(context!!, "home.json")
         setRecyclerView()
 
@@ -125,14 +126,16 @@ class HomeFragment : BaseFragment(), AllAppsItemClickListener<List<String>>,
             Log.d("TAG", "HomeFragment Live topInternationalLiveData $t")
             topInternationalAdapter!!.setItems(t)
         })
+
         if (firebaseRemoteConfig!!.getBoolean(Constants().SHOW_ADS)) {
-            onLoadFBNativeAd1(view, context!!)
-            onLoadFBNativeAd2(view, context!!)
+            onLoadFBNativeAd1(view!!, context!!)
+            onLoadFBNativeAd2(view!!, context!!)
 
         }
 
 
     }
+
 
     fun initViews(view: View) {
         firebaseAnalytics = FirebaseAnalytics.getInstance(activity!!)

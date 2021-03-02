@@ -340,25 +340,30 @@ class WebActivity : AppCompatActivity() {
 
     override fun onBackPressed() {
         requestedOrientation = ActivityInfo.SCREEN_ORIENTATION_PORTRAIT
-        if (webView!!.canGoBack()) {
-            webView!!.goBack()
-        }
-        else{
+
             if (back_pressed + TIME_DELAY > System.currentTimeMillis()) {
-                if (interstitialFbAd!=null && interstitialFbAd!!.isAdLoaded) {
-                    if (interstitialFbAd!!.isAdInvalidated) {
-                    } else {
-                        interstitialFbAd!!.show()
-                    }
-                }
                 super.onBackPressed()
             } else {
-                Toast.makeText(getBaseContext(), "Press once again to exit!",
+                Toast.makeText(getBaseContext(), "Double click to exit!",
                     Toast.LENGTH_SHORT).show();
+                if (webView!!.canGoBack()) {
+                    webView!!.goBack()
+                }
+                else{
+                    if (interstitialFbAd!=null && interstitialFbAd!!.isAdLoaded) {
+                        if (interstitialFbAd!!.isAdInvalidated) {
+                        } else {
+                            interstitialFbAd!!.show()
+                        }
+                    }
+                    else{
+                        super.onBackPressed()
+                    }
+
+                }
             }
             back_pressed = System.currentTimeMillis();
 
-        }
         }
 //
 
