@@ -2,9 +2,10 @@ package food.delivery.fantasy.hub.online.coupons.deals.network.bazaar.tracker.mo
 
 import com.google.gson.annotations.Expose
 import com.google.gson.annotations.SerializedName
+import java.io.Serializable
 
 
-class AllAppsModel {
+class AllAppsModel : Serializable {
     @SerializedName("range")
     @Expose
     private var range: String? = null

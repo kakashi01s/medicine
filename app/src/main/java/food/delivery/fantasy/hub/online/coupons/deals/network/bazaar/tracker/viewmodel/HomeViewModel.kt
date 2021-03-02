@@ -7,6 +7,7 @@ import androidx.lifecycle.ViewModel
 import food.delivery.fantasy.hub.online.coupons.deals.network.bazaar.tracker.Singleton
 import food.delivery.fantasy.hub.online.coupons.deals.network.bazaar.tracker.data.DataFactory
 import food.delivery.fantasy.hub.online.coupons.deals.network.bazaar.tracker.data.DataService
+import food.delivery.fantasy.hub.online.coupons.deals.network.bazaar.tracker.model.AllAppsModel
 import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.disposables.CompositeDisposable
 import io.reactivex.disposables.Disposable
@@ -15,7 +16,7 @@ import io.reactivex.schedulers.Schedulers
 
 class HomeViewModel : ViewModel() {
 
-    var allAppsLiveData: MutableLiveData<List<List<String>>?> = MutableLiveData()
+    var allAppsLiveData: MutableLiveData<AllAppsModel> = MutableLiveData()
     var carouselImagesLiveData: MutableLiveData<List<List<String>>?> = MutableLiveData()
     var topInternationalLiveData: MutableLiveData<List<List<String>>?> = MutableLiveData()
     private var context: Context? = null
@@ -43,7 +44,7 @@ class HomeViewModel : ViewModel() {
             })
             ?.subscribe(Consumer { t ->
                 Log.d("TAG", "fetchAllApps Response ${t.getValues()}")
-                changeAllAppsDataSet(t.getValues())
+                changeAllAppsDataSet(t)
             })
 
         if (disposable != null) {
@@ -100,7 +101,7 @@ class HomeViewModel : ViewModel() {
     }
 
 
-    fun changeAllAppsDataSet(allAppsList: List<List<String>>?){
+    fun changeAllAppsDataSet(allAppsList:  AllAppsModel){
         allAppsLiveData.value = allAppsList
     }
 

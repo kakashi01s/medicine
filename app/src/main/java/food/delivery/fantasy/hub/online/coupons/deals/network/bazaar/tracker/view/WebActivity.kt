@@ -5,16 +5,12 @@ import android.app.AlertDialog
 import android.content.DialogInterface
 import android.content.pm.ActivityInfo
 import android.content.pm.PackageManager
-import android.content.res.Configuration
 import android.os.Build
 import android.os.Bundle
 import android.util.Log
 import android.view.View
 import android.webkit.*
-import android.widget.FrameLayout
-import android.widget.ImageView
-import android.widget.LinearLayout
-import android.widget.RelativeLayout
+import android.widget.*
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.app.ActivityCompat
 import androidx.core.content.ContextCompat
@@ -38,6 +34,8 @@ class WebActivity : AppCompatActivity() {
     var ivAppIcon: ImageView? = null
 
     private val TAG: String = WebActivity::class.java.simpleName
+    private val TIME_DELAY = 2000
+    private var back_pressed: Long = 0
 
     private var interstitialFbAd: com.facebook.ads.InterstitialAd? = null
     private var adView: AdView? = null
@@ -66,8 +64,10 @@ class WebActivity : AppCompatActivity() {
         }
         loadWebSplash()
 
-        ActivityCompat.requestPermissions(this,
-                arrayOf(Manifest.permission.ACCESS_FINE_LOCATION), LOCATION_PERMISSION_CODE)
+        ActivityCompat.requestPermissions(
+            this,
+            arrayOf(Manifest.permission.ACCESS_FINE_LOCATION), LOCATION_PERMISSION_CODE
+        )
 
         webViewSettings()
 
@@ -118,8 +118,8 @@ class WebActivity : AppCompatActivity() {
 
         webView!!.webViewClient = object : WebViewClient() {
             override fun shouldOverrideUrlLoading(
-                    view: WebView,
-                    request: WebResourceRequest
+                view: WebView,
+                request: WebResourceRequest
             ): Boolean {
                 if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
                     view.loadUrl(request.url.toString())
@@ -131,34 +131,35 @@ class WebActivity : AppCompatActivity() {
         webView!!.webChromeClient = object : WebChromeClient(){
 
             override fun onGeolocationPermissionsShowPrompt(
-                    origin: String?,
-                    callback: GeolocationPermissions.Callback?
+                origin: String?,
+                callback: GeolocationPermissions.Callback?
             ) {
                 if (ContextCompat.checkSelfPermission(
-                                this@WebActivity,
-                                Manifest.permission.ACCESS_FINE_LOCATION
-                        )
+                        this@WebActivity,
+                        Manifest.permission.ACCESS_FINE_LOCATION
+                    )
                         != PackageManager.PERMISSION_GRANTED
                 ) {
 
                     if (ActivityCompat.shouldShowRequestPermissionRationale(
-                                    this@WebActivity,
-                                    Manifest.permission.ACCESS_FINE_LOCATION
-                            )
+                            this@WebActivity,
+                            Manifest.permission.ACCESS_FINE_LOCATION
+                        )
                     ) {
                         AlertDialog.Builder(this@WebActivity)
                                 .setMessage("Please turn ON the GPS to make app work smoothly")
                                 .setNeutralButton(
-                                        android.R.string.ok,
-                                        DialogInterface.OnClickListener { dialogInterface, i ->
-                                            mGeoLocationCallback = callback
-                                            mGeoLocationRequestOrigin = origin
-                                            ActivityCompat.requestPermissions(
-                                                    this@WebActivity,
-                                                    arrayOf(Manifest.permission.ACCESS_FINE_LOCATION), 1001
-                                            )
+                                    android.R.string.ok,
+                                    DialogInterface.OnClickListener { dialogInterface, i ->
+                                        mGeoLocationCallback = callback
+                                        mGeoLocationRequestOrigin = origin
+                                        ActivityCompat.requestPermissions(
+                                            this@WebActivity,
+                                            arrayOf(Manifest.permission.ACCESS_FINE_LOCATION),
+                                            1001
+                                        )
 
-                                        })
+                                    })
                                 .show()
 
                     } else {
@@ -166,8 +167,8 @@ class WebActivity : AppCompatActivity() {
                         mGeoLocationCallback = callback
                         mGeoLocationRequestOrigin = origin
                         ActivityCompat.requestPermissions(
-                                this@WebActivity,
-                                arrayOf(Manifest.permission.ACCESS_FINE_LOCATION), 1001
+                            this@WebActivity,
+                            arrayOf(Manifest.permission.ACCESS_FINE_LOCATION), 1001
                         )
                     }
                 } else {
@@ -208,7 +209,11 @@ class WebActivity : AppCompatActivity() {
         }
     }
 
-    override fun onRequestPermissionsResult(requestCode: Int, permissions: Array<out String>, grantResults: IntArray) {
+    override fun onRequestPermissionsResult(
+        requestCode: Int,
+        permissions: Array<out String>,
+        grantResults: IntArray
+    ) {
         super.onRequestPermissionsResult(requestCode, permissions, grantResults)
 
         when (requestCode) {
@@ -275,9 +280,11 @@ class WebActivity : AppCompatActivity() {
             }
         }
 
-        interstitialFbAd!!.loadAd(interstitialFbAd!!.buildLoadAdConfig()
+        interstitialFbAd!!.loadAd(
+            interstitialFbAd!!.buildLoadAdConfig()
                 .withAdListener(interstitialAdListener)
-                .build());
+                .build()
+        );
 
     }
 
@@ -337,15 +344,22 @@ class WebActivity : AppCompatActivity() {
             webView!!.goBack()
         }
         else{
-            if (interstitialFbAd!=null && interstitialFbAd!!.isAdLoaded) {
-                if (interstitialFbAd!!.isAdInvalidated) {
-                    super.onBackPressed()
-                } else {
-                    interstitialFbAd!!.show()
+            if (back_pressed + TIME_DELAY > System.currentTimeMillis()) {
+                if (interstitialFbAd!=null && interstitialFbAd!!.isAdLoaded) {
+                    if (interstitialFbAd!!.isAdInvalidated) {
+                    } else {
+                        interstitialFbAd!!.show()
+                    }
                 }
-            } else {
                 super.onBackPressed()
+            } else {
+                Toast.makeText(getBaseContext(), "Press once again to exit!",
+                    Toast.LENGTH_SHORT).show();
             }
+            back_pressed = System.currentTimeMillis();
+
         }
-    }
+        }
+//
+
 }

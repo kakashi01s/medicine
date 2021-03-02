@@ -1,11 +1,13 @@
 package food.delivery.fantasy.hub.online.coupons.deals.network.bazaar.tracker.view
 
+import android.content.Context
 import android.content.Intent
 import android.net.Uri
 import android.os.Bundle
 import android.util.Log
 import androidx.appcompat.app.AlertDialog
 import androidx.fragment.app.FragmentPagerAdapter
+import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import com.google.android.material.tabs.TabLayout
 import com.google.android.material.tabs.TabLayout.OnTabSelectedListener
@@ -14,12 +16,14 @@ import com.onesignal.OneSignal
 import food.delivery.fantasy.hub.online.coupons.deals.network.bazaar.tracker.BuildConfig
 import food.delivery.fantasy.hub.online.coupons.deals.network.bazaar.tracker.R
 import food.delivery.fantasy.hub.online.coupons.deals.network.bazaar.tracker.base.BaseActivity
+import food.delivery.fantasy.hub.online.coupons.deals.network.bazaar.tracker.model.AllAppsModel
 import food.delivery.fantasy.hub.online.coupons.deals.network.bazaar.tracker.utils.CustomViewPager
 import food.delivery.fantasy.hub.online.coupons.deals.network.bazaar.tracker.utils.ForceUpdateChecker
 import food.delivery.fantasy.hub.online.coupons.deals.network.bazaar.tracker.viewmodel.CategoryViewModel
 import food.delivery.fantasy.hub.online.coupons.deals.network.bazaar.tracker.viewmodel.HomeViewModel
 import food.delivery.fantasy.hub.online.coupons.deals.network.bazaar.tracker.viewmodel.ContinentalViewModel
 import food.delivery.fantasy.hub.online.coupons.deals.network.bazaar.tracker.viewpager.AppPagerAdapter
+import java.io.*
 
 class MainActivity : BaseActivity(), ForceUpdateChecker.OnUpdateNeededListener {
     private val ONESIGNAL_APP_ID ="285284f8-5bc8-4f11-ad58-30ebde4dbec3"
@@ -34,12 +38,13 @@ class MainActivity : BaseActivity(), ForceUpdateChecker.OnUpdateNeededListener {
         get() = 0
     override val layoutId: Int
         get() = 0
-
+    var homeFragmentData: AllAppsModel? = null
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
         initViews()
+        homeFragmentData = read(this, "home.json")
         setupViewPager()
 
 //        ForceUpdateChecker().with(this)!!.onUpdateNeeded(this).check()
@@ -49,7 +54,7 @@ class MainActivity : BaseActivity(), ForceUpdateChecker.OnUpdateNeededListener {
         continentalViewModel = ViewModelProvider(this).get(ContinentalViewModel::class.java)
         homeViewModel = ViewModelProvider(this).get(HomeViewModel::class.java)
         categoryViewModel = ViewModelProvider(this).get(CategoryViewModel::class.java)
-
+        updateJson()
         viewPagerTab!!.addOnTabSelectedListener(object : OnTabSelectedListener {
             override fun onTabSelected(tab: TabLayout.Tab) {
                 Log.d("TAG", "onTabSelected: " + tab.position)
@@ -63,6 +68,19 @@ class MainActivity : BaseActivity(), ForceUpdateChecker.OnUpdateNeededListener {
         })
 
     }
+    fun updateJson() {
+        homeViewModel!!.loadData()
+        homeViewModel!!.allAppsLiveData.observe(this, Observer { t ->
+            val fos: FileOutputStream = this.openFileOutput("home.json", MODE_PRIVATE)
+            val os = ObjectOutputStream(fos)
+            os.flush()
+            os.writeObject(t)
+            os.close()
+            fos.close()
+        })
+        Log.d("File", "Storage file is updated successfully")
+    }
+
 
     fun initViews(){
         firebaseAnalytics = FirebaseAnalytics.getInstance(this)
@@ -71,7 +89,7 @@ class MainActivity : BaseActivity(), ForceUpdateChecker.OnUpdateNeededListener {
     }
 
     fun setupViewPager(){
-        fragmentPagerAdapter = AppPagerAdapter(supportFragmentManager)
+        fragmentPagerAdapter = AppPagerAdapter(supportFragmentManager,homeFragmentData)
         viewPager!!.adapter = fragmentPagerAdapter
         val limit = if ((fragmentPagerAdapter as AppPagerAdapter).getCount() > 1) (fragmentPagerAdapter as AppPagerAdapter).getCount() - 1 else 1
         viewPager!!.offscreenPageLimit = limit;
@@ -81,6 +99,21 @@ class MainActivity : BaseActivity(), ForceUpdateChecker.OnUpdateNeededListener {
 
         viewPagerTab!!.setupWithViewPager(viewPager)
 
+    }
+    fun read(context: Context, fileName: String): AllAppsModel?{
+        return try {
+            val fis = context.openFileInput(fileName)
+            val `is` = ObjectInputStream(fis)
+            val allAppsModel: AllAppsModel = `is`.readObject() as AllAppsModel
+            `is`.close()
+            fis.close()
+            return allAppsModel
+        }
+        catch (fileNotFound: FileNotFoundException) {
+            null
+        } catch (ioException: IOException) {
+            null
+        }
     }
 
     override fun onDestroy() {

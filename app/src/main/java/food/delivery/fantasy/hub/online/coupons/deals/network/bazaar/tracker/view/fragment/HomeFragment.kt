@@ -27,6 +27,7 @@ import com.synnapps.carouselview.ImageListener
 import food.delivery.fantasy.hub.online.coupons.deals.network.bazaar.tracker.R
 import kotlinx.android.synthetic.main.fragment_home.*
 import food.delivery.fantasy.hub.online.coupons.deals.network.bazaar.tracker.base.BaseFragment
+import food.delivery.fantasy.hub.online.coupons.deals.network.bazaar.tracker.model.AllAppsModel
 import food.delivery.fantasy.hub.online.coupons.deals.network.bazaar.tracker.utils.Constants
 import food.delivery.fantasy.hub.online.coupons.deals.network.bazaar.tracker.view.MainActivity
 import food.delivery.fantasy.hub.online.coupons.deals.network.bazaar.tracker.view.WebActivity
@@ -35,11 +36,15 @@ import food.delivery.fantasy.hub.online.coupons.deals.network.bazaar.tracker.vie
 import food.delivery.fantasy.hub.online.coupons.deals.network.bazaar.tracker.view.listener.AllAppsItemClickListener
 import food.delivery.fantasy.hub.online.coupons.deals.network.bazaar.tracker.view.listener.Home.TopInternationalClickListener
 import food.delivery.fantasy.hub.online.coupons.deals.network.bazaar.tracker.viewmodel.HomeViewModel
+import java.io.FileNotFoundException
+import java.io.IOException
+import java.io.ObjectInputStream
 
 // TODO: Rename parameter arguments, choose names that match
 // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
 private const val ARG_PARAM1 = "param1"
 private const val ARG_PARAM2 = "param2"
+private const val ARG_PARAM3 = "param3"
 
 /**
  * A simple [Fragment] subclass.
@@ -63,7 +68,7 @@ class HomeFragment : BaseFragment(), AllAppsItemClickListener<List<String>>,
 
     var firebaseRemoteConfig: FirebaseRemoteConfig? = null
     var firebaseAnalytics: FirebaseAnalytics? = null
-
+    var homeData : AllAppsModel? = null
     var carouselImagesList: ArrayList<List<String>>? = ArrayList()
     private var nativeAdFB1: NativeAd? = null
     private var nativeAdFB2: NativeAd? = null
@@ -80,6 +85,7 @@ class HomeFragment : BaseFragment(), AllAppsItemClickListener<List<String>>,
         arguments?.let {
             param1 = it.getInt(ARG_PARAM1)
             param2 = it.getString(ARG_PARAM2)
+            homeData = arguments!!.getSerializable(ARG_PARAM3) as AllAppsModel
         }
     }
 
@@ -97,17 +103,17 @@ class HomeFragment : BaseFragment(), AllAppsItemClickListener<List<String>>,
         initViews(view)
 
         firebaseRemoteConfig = FirebaseRemoteConfig.getInstance()
-
+        homeData = read(context!!, "home.json")
         setRecyclerView()
 
         homeViewModel = ViewModelProvider(activity!!).get(HomeViewModel::class.java)
 
         homeViewModel?.loadData()
 
-        homeViewModel!!.allAppsLiveData.observe(this, Observer { t ->
-            Log.d("TAG", "HomeFragment Live allAppsLiveData$t")
-            allAppsAdapter?.setItems(t)
-        })
+//        homeViewModel!!.allAppsLiveData.observe(this, Observer { t ->
+//            Log.d("TAG", "HomeFragment Live allAppsLiveData$t")
+//            allAppsAdapter?.setItems(t)
+//        })
 
         homeViewModel!!.carouselImagesLiveData.observe(this, Observer { t ->
             Log.d("TAG", "HomeFragment Live carousel $t")
@@ -134,10 +140,24 @@ class HomeFragment : BaseFragment(), AllAppsItemClickListener<List<String>>,
         rvAllApps = view.findViewById(R.id.rvAllApps)
         rvTrending = view.findViewById(R.id.rvTrending)
     }
+    fun read(context: Context, fileName: String): AllAppsModel?{
+        return try {
+            val fis = context.openFileInput(fileName)
+            val `is` = ObjectInputStream(fis)
+            val allAppsModel: AllAppsModel = `is`.readObject() as AllAppsModel
+            `is`.close()
+            fis.close()
+            return allAppsModel
+        }
+        catch (fileNotFound: FileNotFoundException) {
+            null
+        } catch (ioException: IOException) {
+            null
+        }
+    }
 
     fun setRecyclerView() {
-        allAppsAdapter = AllAppsAdapter(context)
-        allAppsAdapter!!.setListener(this)
+        allAppsAdapter = AllAppsAdapter(context!!,homeData!!)
         rvAllApps.apply {
             rvAllApps?.layoutManager = GridLayoutManager(activity, 3)
             rvAllApps?.adapter = allAppsAdapter
@@ -352,11 +372,12 @@ class HomeFragment : BaseFragment(), AllAppsItemClickListener<List<String>>,
          */
         // TODO: Rename and change types and number of parameters
         @JvmStatic
-        fun newInstance(param1: Int, param2: String) =
+        fun newInstance(param1: Int, param2: String, allAppsModel: AllAppsModel) =
             HomeFragment().apply {
                 arguments = Bundle().apply {
                     putInt(ARG_PARAM1, param1)
                     putString(ARG_PARAM2, param2)
+                    putSerializable(ARG_PARAM3,allAppsModel)
                 }
             }
     }

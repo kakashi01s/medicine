@@ -2,9 +2,10 @@ package food.delivery.fantasy.hub.online.coupons.deals.network.bazaar.tracker.vi
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentManager
 import androidx.fragment.app.FragmentPagerAdapter
+import food.delivery.fantasy.hub.online.coupons.deals.network.bazaar.tracker.model.AllAppsModel
 import food.delivery.fantasy.hub.online.coupons.deals.network.bazaar.tracker.view.fragment.*
 
-class AppPagerAdapter(fragmentManager: FragmentManager) : FragmentPagerAdapter(fragmentManager) {
+class AppPagerAdapter(fragmentManager: FragmentManager,val homeFragmentData: AllAppsModel?) : FragmentPagerAdapter(fragmentManager) {
 
     val NUM_ITEMS = 4;
 
@@ -18,7 +19,7 @@ class AppPagerAdapter(fragmentManager: FragmentManager) : FragmentPagerAdapter(f
                 return ContinentalFragment.newInstance(position, "Continent")
             }
             1 -> {
-                return HomeFragment.newInstance(position, "Home")
+                return HomeFragment.newInstance(position, "Home",homeFragmentData!!)
             }
             2 -> {
                 return CategoryFragment.newInstance(position, "Global")
@@ -27,7 +28,7 @@ class AppPagerAdapter(fragmentManager: FragmentManager) : FragmentPagerAdapter(f
                 return ToolsFragment.newInstance(position, "News")
             }
 
-            else -> return HomeFragment.newInstance(position, "Home")
+            else -> return HomeFragment.newInstance(position, "Home",homeFragmentData!!)
         }
     }
 
