@@ -43,18 +43,18 @@ class Singleton : Application() {
         OneSignal.initWithContext(this);
         OneSignal.setAppId(ONESIGNAL_APP_ID)
         OneSignal.setNotificationOpenedHandler {
-            val data: JSONObject = it.notification.additionalData
-            var customKey: String?
+            if(it.notification.additionalData!=null){
+                val data: JSONObject = it.notification.additionalData
+                var customKey: String?
 
-            if (data != null) {
-                customKey = data.optString("customkey", null)
+                if (data != null) {
+                    customKey = data.optString("customkey", null)
 
-                if (customKey != null) {
-                    val intent: Intent = Intent(applicationContext, WebActivity::class.java)
-                    intent.flags =
-                        Intent.FLAG_ACTIVITY_REORDER_TO_FRONT or Intent.FLAG_ACTIVITY_NEW_TASK
-                    intent.putExtra("url", customKey)
-                    startActivity(intent)
+                    if (customKey != null) {
+                        val intent: Intent = Intent(applicationContext, WebActivity::class.java)
+                        intent.putExtra("url", customKey)
+                        startActivity(intent)
+                    }
                 }
             }
         }

@@ -185,27 +185,6 @@ class WebActivity : AppCompatActivity() {
                 }
             }
 
-            override fun onShowCustomView(view: View?, callback: CustomViewCallback?) {
-                super.onShowCustomView(view, callback)
-
-                if (view is FrameLayout){
-
-                    fullscreenView = view
-                    fullScreenContainer.addView(fullscreenView)
-                    requestedOrientation = ActivityInfo.SCREEN_ORIENTATION_LANDSCAPE
-                    fullScreenContainer.visibility = View.VISIBLE
-                    mainContainer.visibility = View.GONE
-
-                }
-            }
-
-            override fun onHideCustomView() {
-                super.onHideCustomView()
-                requestedOrientation = ActivityInfo.SCREEN_ORIENTATION_PORTRAIT
-                fullScreenContainer.removeView(fullscreenView)
-                fullScreenContainer.visibility = View.GONE
-                mainContainer.visibility = View.VISIBLE
-            }
         }
     }
 
@@ -339,7 +318,6 @@ class WebActivity : AppCompatActivity() {
     }
 
     override fun onBackPressed() {
-        requestedOrientation = ActivityInfo.SCREEN_ORIENTATION_PORTRAIT
 
             if (back_pressed + TIME_DELAY > System.currentTimeMillis()) {
                 super.onBackPressed()

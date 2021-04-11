@@ -15,7 +15,8 @@
         <WebView
             android:id="@+id/webViewMain"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"/>
+            android:layout_height="match_parent"
+            android:layout_above="@id/banner_container"/>
 
         <LinearLayout
             android:id="@+id/banner_container"
@@ -25,12 +26,6 @@
             android:orientation="vertical"
             app:layout_constraintBottom_toBottomOf="parent" />
     </RelativeLayout>
-
-    <FrameLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:id="@+id/fullScreenContainer"
-        android:visibility="gone"/>
 
     <RelativeLayout
         android:id="@+id/rlWebSplash"
