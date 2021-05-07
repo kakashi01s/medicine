@@ -17,6 +17,6 @@ class ExampleInstrumentedTest {
     fun useAppContext() {
         // Context of the app under test.
         val appContext = InstrumentationRegistry.getInstrumentation().targetContext
-        assertEquals("food.delivery.fantasy.hub.online.coupons.deals.network.bazaar.tracker", appContext.packageName)
+        assertEquals("food.order.delivery.online.global.shopping.world.social.media.news.virtual.all", appContext.packageName)
     }
 }
