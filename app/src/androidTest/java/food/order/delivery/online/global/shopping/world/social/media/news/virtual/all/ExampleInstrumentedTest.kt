@@ -1,4 +1,4 @@
-package food.delivery.fantasy.hub.online.global.shopping.world.social.all
+package food.order.delivery.online.global.shopping.world.social.media.news.virtual.all
 
 import androidx.test.platform.app.InstrumentationRegistry
 import androidx.test.ext.junit.runners.AndroidJUnit4
