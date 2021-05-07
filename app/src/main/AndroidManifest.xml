@@ -17,18 +17,18 @@
         android:usesCleartextTraffic="true"
         android:largeHeap="true"
         tools:targetApi="m">
-        <activity android:name="food.delivery.fantasy.hub.online.coupons.deals.network.bazaar.tracker.view.SplashActivity">
+        <activity android:name="food.delivery.fantasy.hub.online.global.shopping.world.social.all.view.SplashActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name="food.delivery.fantasy.hub.online.coupons.deals.network.bazaar.tracker.view.WebActivity"
+        <activity android:name=".view.WebActivity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenLayout|uiMode|screenSize|smallestScreenSize"
             android:hardwareAccelerated="true"
             android:windowSoftInputMode="adjustPan"/>
-        <activity android:name="food.delivery.fantasy.hub.online.coupons.deals.network.bazaar.tracker.view.MainActivity"/>
+        <activity android:name=".view.MainActivity"/>
 
         <uses-library
             android:name="org.apache.http.legacy"

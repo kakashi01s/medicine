@@ -1,4 +1,4 @@
-package food.delivery.fantasy.hub.online.coupons.deals.network.bazaar.tracker
+package food.delivery.fantasy.hub.online.global.shopping.world.social.all
 
 import androidx.test.platform.app.InstrumentationRegistry
 import androidx.test.ext.junit.runners.AndroidJUnit4

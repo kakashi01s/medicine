@@ -1,4 +1,4 @@
-package food.delivery.fantasy.hub.online.coupons.deals.network.bazaar.tracker
+package food.delivery.fantasy.hub.online.global.shopping.world.social.all
 
 import org.junit.Test
 import org.junit.Assert.*

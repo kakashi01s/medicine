@@ -30,12 +30,12 @@
     </LinearLayout>
 
 
-    <food.delivery.fantasy.hub.online.coupons.deals.network.bazaar.tracker.utils.CustomViewPager
+    <food.delivery.online.global.shopping.world.social.media.news.virtual.all.utils.CustomViewPager
         android:id="@+id/vpPager"
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
 
-    </food.delivery.fantasy.hub.online.coupons.deals.network.bazaar.tracker.utils.CustomViewPager>
+    </food.delivery.online.global.shopping.world.social.media.news.virtual.all.utils.CustomViewPager>
 
 
 </LinearLayout>
