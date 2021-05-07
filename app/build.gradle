@@ -10,7 +10,7 @@ android {
     buildToolsVersion "29.0.3"
 
     defaultConfig {
-        applicationId "food.delivery.fantasy.hub.online.coupons.deals.network.bazaar.tracker"
+        applicationId "food.delivery.online.global.shopping.world.social.media.news.virtual.all"
         minSdkVersion 16
         targetSdkVersion 29
         versionCode 4
