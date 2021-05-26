@@ -35,7 +35,7 @@ class DataFactory {
     val URL_NIGERIA = BASE_URL + "1iEwQIFZDdd3Qj_yM27j-L8Gwv5GRAYbm8GuywXClwnE/values/Sheet1!A2:E/"
     val URL_PORTUGAL = BASE_URL + "1GLW8THEyf1N9IFzdcVh_zC9tbl6JOdmLxk-U7jOMuWg/values/Sheet1!A2:E/"
     val URL_GREECE = BASE_URL + "1CZnAjgaHk7gUS_c5SYpbEkErbvMSErcT0AZQGjHIFio/values/Sheet1!A2:E/"
-    val URL_AUSTRALIA = BASE_URL + "1xB-e_Tp_dbi1HcCb9nrYbiLBwjnZCGNhIUu4rLGBkms/values/Sheet1!A2:E/"
+    val URL_AUSTRALIA = BASE_URL + "15rWJc1eGnSeJgdI8qofZXZU40YvgO71Wf8h4i2PQ9O4/values/Sheet1!A2:E/"
 
 //    CONTINENTS
 
