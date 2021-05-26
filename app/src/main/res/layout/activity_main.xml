@@ -30,12 +30,12 @@
     </LinearLayout>
 
 
-    <food.delivery.online.global.shopping.world.social.media.news.virtual.all.utils.CustomViewPager
+    <job.search.visa.global.check.migration.internship.news.usa.food.shop.utils.CustomViewPager
         android:id="@+id/vpPager"
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
 
-    </food.delivery.online.global.shopping.world.social.media.news.virtual.all.utils.CustomViewPager>
+    </job.search.visa.global.check.migration.internship.news.usa.food.shop.utils.CustomViewPager>
 
 
 </LinearLayout>

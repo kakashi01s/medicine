@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-    package="food.delivery.online.global.shopping.world.social.media.news.virtual.all">
+    package="job.search.visa.global.check.migration.internship.news.usa.food.shop">
 
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
     <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION"/>
     <uses-permission android:name="android.permission.INTERNET" />
 
     <application
-        android:name="food.delivery.online.global.shopping.world.social.media.news.virtual.all.Singleton"
+        android:name="job.search.visa.global.check.migration.internship.news.usa.food.shop.gov"
         android:allowBackup="true"
         android:icon="@drawable/app_logo"
         android:label="@string/app_name"
@@ -17,18 +17,18 @@
         android:usesCleartextTraffic="true"
         android:largeHeap="true"
         tools:targetApi="m">
-        <activity android:name="food.delivery.fantasy.hub.online.global.shopping.world.social.all.view.SplashActivity">
+        <activity android:name="job.search.fantasy.hub.online.global.shopping.world.social.all.view.SplashActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".view.WebActivity"
+        <activity android:name="job.search.visa.global.check.migration.internship.news.usa.food.shop.view.WebActivity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenLayout|uiMode|screenSize|smallestScreenSize"
             android:hardwareAccelerated="true"
             android:windowSoftInputMode="adjustPan"/>
-        <activity android:name=".view.MainActivity"/>
+        <activity android:name="job.search.visa.global.check.migration.internship.news.usa.food.shop.view.MainActivity"/>
 
         <uses-library
             android:name="org.apache.http.legacy"
