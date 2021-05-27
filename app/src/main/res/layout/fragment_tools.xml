@@ -22,35 +22,172 @@
         android:padding="10dp"
         android:orientation="vertical">
 
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content">
 
-            <ImageView
-                android:layout_width="30dp"
-                android:layout_height="30dp"
-                android:src="@drawable/ic_grid"/>
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/live_news"
-                android:layout_gravity="center_vertical"
-                android:layout_marginLeft="10dp"
-                android:layout_marginStart="10dp"
-                android:textSize="16sp"
-                android:textColor="@color/black_75"
-                android:fontFamily="@font/montserrat_semibold" />
-
-        </LinearLayout>
-
-
-        <androidx.recyclerview.widget.RecyclerView
+        <androidx.cardview.widget.CardView
+            android:id="@+id/card_games"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:id="@+id/rvLiveNews"
-            android:padding="10dp"
-            android:layout_marginTop="10dp"/>
+            android:layout_margin="20dp"
+            android:elevation="3dp"
+            android:padding="5dp"
+            app:cardBackgroundColor="#E6FD00"
+            app:cardCornerRadius="12dp"
+            app:cardElevation="4dp"
+            app:contentPadding="4dp"
+            >
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:padding="16dp">
+
+                <TextView
+                    android:id="@+id/card_games_title"
+                    android:layout_width="wrap_content"
+                    android:layout_height="50dp"
+                    android:layout_margin="5dp"
+                    android:layout_marginTop="10dp"
+                    android:padding="5dp"
+                    android:text="Games"
+                    android:textColor="@color/black"
+                    android:textSize="30dp"
+                    android:textStyle="bold"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <TextView
+                    android:id="@+id/card_games_body"
+                    android:layout_width="wrap_content"
+                    android:layout_height="40dp"
+                    android:layout_margin="5dp"
+                    android:layout_marginTop="10dp"
+                    android:padding="5dp"
+                    android:textColor="@color/black"
+                    android:textSize="20dp"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/card_games_title" />
+
+
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/rvgames"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:padding="10dp"
+                android:layout_marginTop="5dp"/>
+
+        </androidx.cardview.widget.CardView>
+
+        <androidx.cardview.widget.CardView
+            android:id="@+id/card_food"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="20dp"
+            android:elevation="3dp"
+            android:padding="5dp"
+            app:cardBackgroundColor="#F34E4E"
+            app:cardCornerRadius="12dp"
+            app:cardElevation="4dp"
+            app:contentPadding="4dp"
+            >
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:padding="16dp">
+
+            <TextView
+                android:id="@+id/card_food_title"
+                android:layout_width="wrap_content"
+                android:layout_height="50dp"
+                android:layout_margin="5dp"
+                android:layout_marginTop="10dp"
+                android:padding="5dp"
+                android:text="Food"
+                android:textColor="@color/black"
+                android:textSize="30dp"
+                android:textStyle="bold"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/card_food_body"
+                android:layout_width="wrap_content"
+                android:layout_height="40dp"
+                android:layout_margin="5dp"
+                android:layout_marginTop="10dp"
+                android:padding="5dp"
+                android:textColor="@color/black"
+                android:textSize="20dp"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/card_food_title" />
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/rvfood"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:padding="10dp"
+                android:layout_marginTop="5dp"/>
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+        </androidx.cardview.widget.CardView>
+
+        <androidx.cardview.widget.CardView
+            android:id="@+id/card_shopping"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="20dp"
+            android:elevation="3dp"
+            android:padding="5dp"
+            app:cardBackgroundColor="#08F6AA"
+            app:cardCornerRadius="12dp"
+            app:cardElevation="4dp"
+            app:contentPadding="4dp">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:padding="16dp">
+
+                <TextView
+                    android:id="@+id/card_shopping_title"
+                    android:layout_width="wrap_content"
+                    android:layout_height="50dp"
+                    android:layout_margin="5dp"
+                    android:layout_marginTop="10dp"
+                    android:padding="5dp"
+                    android:text="Shopping"
+                    android:textColor="@color/black"
+                    android:textSize="30dp"
+                    android:textStyle="bold"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <TextView
+                    android:id="@+id/card_shopping_body"
+                    android:layout_width="wrap_content"
+                    android:layout_height="40dp"
+                    android:layout_margin="5dp"
+                    android:layout_marginTop="10dp"
+                    android:padding="5dp"
+                    android:textColor="@color/black"
+                    android:textSize="20dp"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/card_shopping_title" />
+
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/rvshopping"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:padding="10dp"
+                android:layout_marginTop="5dp"/>
+
+        </androidx.cardview.widget.CardView>
+
 
     </LinearLayout>
 
@@ -78,33 +215,172 @@
 
             <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content">
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
 
-                <ImageView
-                    android:layout_width="30dp"
-                    android:layout_height="30dp"
-                    android:src="@drawable/ic_grid"/>
-
-                <TextView
-                    android:layout_width="wrap_content"
+                <androidx.cardview.widget.CardView
+                    android:id="@+id/card_deals"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="@string/cooking_channels"
-                    android:layout_gravity="center_vertical"
-                    android:layout_marginLeft="10dp"
-                    android:layout_marginStart="10dp"
-                    android:textSize="16sp"
-                    android:textColor="@color/black_75"
-                    android:fontFamily="@font/montserrat_semibold" />
+                    android:layout_margin="20dp"
+                    android:elevation="3dp"
+                    android:padding="5dp"
+                    app:cardBackgroundColor="#FF4F8B"
+                    app:cardCornerRadius="12dp"
+                    app:cardElevation="4dp"
+                    app:contentPadding="4dp">
+
+                    <androidx.constraintlayout.widget.ConstraintLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:padding="16dp">
+
+                        <TextView
+                            android:id="@+id/card_deals_title"
+                            android:layout_width="wrap_content"
+                            android:layout_height="50dp"
+                            android:layout_margin="5dp"
+                            android:layout_marginTop="10dp"
+                            android:padding="5dp"
+                            android:text="Deals"
+                            android:textColor="@color/black"
+                            android:textSize="30dp"
+                            android:textStyle="bold"
+                            app:layout_constraintLeft_toLeftOf="parent"
+                            app:layout_constraintTop_toTopOf="parent" />
+
+                        <TextView
+                            android:id="@+id/card_deals_body"
+                            android:layout_width="wrap_content"
+                            android:layout_height="40dp"
+                            android:layout_margin="5dp"
+                            android:layout_marginTop="10dp"
+                            android:padding="5dp"
+                            android:textColor="@color/black"
+                            android:textSize="20dp"
+                            app:layout_constraintLeft_toLeftOf="parent"
+                            app:layout_constraintTop_toBottomOf="@id/card_deals_title" />
+
+
+                    </androidx.constraintlayout.widget.ConstraintLayout>
+                    <androidx.recyclerview.widget.RecyclerView
+                        android:id="@+id/rvdeals"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:padding="10dp"
+                        android:layout_marginTop="5dp"/>
+
+                </androidx.cardview.widget.CardView>
+
+
+
+                <androidx.cardview.widget.CardView
+                    android:id="@+id/card_socialmedia"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="20dp"
+                    android:elevation="3dp"
+                    android:padding="5dp"
+                    app:cardBackgroundColor="#9E6FF3"
+                    app:cardCornerRadius="12dp"
+                    app:cardElevation="4dp"
+                    app:contentPadding="4dp">
+
+                    <androidx.constraintlayout.widget.ConstraintLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:padding="16dp">
+
+                        <TextView
+                            android:id="@+id/card_socialmedia_title"
+                            android:layout_width="wrap_content"
+                            android:layout_height="50dp"
+                            android:layout_margin="5dp"
+                            android:layout_marginTop="10dp"
+                            android:padding="5dp"
+                            android:text="Social Media"
+                            android:textColor="@color/black"
+                            android:textSize="30dp"
+                            android:textStyle="bold"
+                            app:layout_constraintLeft_toLeftOf="parent"
+                            app:layout_constraintTop_toTopOf="parent" />
+
+                        <TextView
+                            android:id="@+id/card_socialmedia_body"
+                            android:layout_width="wrap_content"
+                            android:layout_height="40dp"
+                            android:layout_margin="5dp"
+                            android:layout_marginTop="10dp"
+                            android:padding="5dp"
+                            android:textColor="@color/black"
+                            android:textSize="20dp"
+                            app:layout_constraintLeft_toLeftOf="parent"
+                            app:layout_constraintTop_toBottomOf="@id/card_socialmedia_title" />
+
+                    </androidx.constraintlayout.widget.ConstraintLayout>
+                    <androidx.recyclerview.widget.RecyclerView
+                        android:id="@+id/rvsocialmedia"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:padding="10dp"
+                        android:layout_marginTop="5dp"/>
+                </androidx.cardview.widget.CardView>
+
+                <androidx.cardview.widget.CardView
+                    android:id="@+id/card_sports"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="20dp"
+                    android:elevation="3dp"
+                    android:padding="5dp"
+                    app:cardBackgroundColor="#7CF36F"
+                    app:cardCornerRadius="12dp"
+                    app:cardElevation="4dp"
+                    app:contentPadding="4dp">
+
+                    <androidx.constraintlayout.widget.ConstraintLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:padding="16dp">
+
+                        <TextView
+                            android:id="@+id/card_sports_title"
+                            android:layout_width="wrap_content"
+                            android:layout_height="50dp"
+                            android:layout_margin="5dp"
+                            android:layout_marginTop="10dp"
+                            android:padding="5dp"
+                            android:text="Sports"
+                            android:textColor="@color/black"
+                            android:textSize="30dp"
+                            android:textStyle="bold"
+                            app:layout_constraintLeft_toLeftOf="parent"
+                            app:layout_constraintTop_toTopOf="parent" />
+
+                        <TextView
+                            android:id="@+id/card_sports_body"
+                            android:layout_width="wrap_content"
+                            android:layout_height="40dp"
+                            android:layout_margin="5dp"
+                            android:layout_marginTop="10dp"
+                            android:padding="5dp"
+                            android:textColor="@color/black"
+                            android:textSize="20dp"
+                            app:layout_constraintLeft_toLeftOf="parent"
+                            app:layout_constraintTop_toBottomOf="@id/card_sports_title" />
+
+                    </androidx.constraintlayout.widget.ConstraintLayout>
+
+                    <androidx.recyclerview.widget.RecyclerView
+                        android:id="@+id/rvsports"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:padding="10dp"
+                        android:layout_marginTop="5dp"/>
+                </androidx.cardview.widget.CardView>
 
             </LinearLayout>
 
-
-            <androidx.recyclerview.widget.RecyclerView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:id="@+id/rvCookingChannels"
-                android:padding="10dp"
-                android:layout_marginTop="10dp"/>
 
         </LinearLayout>
 
@@ -115,35 +391,6 @@
         android:padding="10dp"
         android:orientation="vertical">
 
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content">
-
-            <ImageView
-                android:layout_width="30dp"
-                android:layout_height="30dp"
-                android:src="@drawable/ic_grid"/>
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/useful_apps"
-                android:layout_gravity="center_vertical"
-                android:layout_marginLeft="10dp"
-                android:layout_marginStart="10dp"
-                android:textSize="16sp"
-                android:textColor="@color/black_75"
-                android:fontFamily="@font/montserrat_semibold" />
-
-        </LinearLayout>
-
-
-        <androidx.recyclerview.widget.RecyclerView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:id="@+id/rvMostUsefulApps"
-            android:padding="10dp"
-            android:layout_marginTop="10dp"/>
 
     </LinearLayout>
         <LinearLayout

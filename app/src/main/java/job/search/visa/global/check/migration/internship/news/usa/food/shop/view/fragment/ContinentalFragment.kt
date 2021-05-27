@@ -21,13 +21,11 @@ import job.search.visa.global.check.migration.internship.news.usa.food.shop.base
 import job.search.visa.global.check.migration.internship.news.usa.food.shop.utils.Constants
 import job.search.visa.global.check.migration.internship.news.usa.food.shop.view.MainActivity
 import job.search.visa.global.check.migration.internship.news.usa.food.shop.view.WebActivity
-import job.search.visa.global.check.migration.internship.news.usa.food.shop.view.adapter.ContinentalCardsAdapter
 import job.search.fantasy.hub.online.global.shopping.world.social.all.view.adapter.ContinentalDialogAdapter
 import job.search.visa.global.check.migration.internship.news.usa.food.shop.view.listener.ContinentalCardsListener
 import job.search.visa.global.check.migration.internship.news.usa.food.shop.view.listener.ContinentalDialogListener
 import job.search.visa.global.check.migration.internship.news.usa.food.shop.viewmodel.ContinentalViewModel
 import kotlinx.android.synthetic.main.fragment_category.*
-import kotlinx.android.synthetic.main.fragment_continental.*
 import kotlinx.android.synthetic.main.fragment_tools.*
 import job.search.visa.global.check.migration.internship.news.usa.food.shop.R
 
@@ -46,14 +44,13 @@ class ContinentalFragment : BaseFragment(), ContinentalCardsListener, Continenta
     private var param1: Int? = null
     private var param2: String? = null
 
-    var continentalCardsAdapter: ContinentalCardsAdapter? = null
+
     var continentalDialogAdapter: ContinentalDialogAdapter? = null
 
     var firebaseAnalytics: FirebaseAnalytics? = null
     var firebaseRemoteConfig: FirebaseRemoteConfig? = null
     var continentalViewModel: ContinentalViewModel? = null
 
-    var rvContinental: RecyclerView? = null
     var rvDialog: RecyclerView? = null
 
     var continentalCardsList: ArrayList<List<String>>? = ArrayList()
@@ -82,7 +79,7 @@ class ContinentalFragment : BaseFragment(), ContinentalCardsListener, Continenta
         savedInstanceState: Bundle?
     ): View? {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_continental, container, false)
+        return inflater.inflate(R.layout.fragment_visa, container, false)
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
@@ -91,7 +88,6 @@ class ContinentalFragment : BaseFragment(), ContinentalCardsListener, Continenta
         initViews(view)
 
         firebaseRemoteConfig = FirebaseRemoteConfig.getInstance()
-        setRecyclerView()
 
         continentalViewModel = ViewModelProvider(activity!!).get(ContinentalViewModel::class.java)
         continentalViewModel?.loadData()
@@ -100,7 +96,6 @@ class ContinentalFragment : BaseFragment(), ContinentalCardsListener, Continenta
             Log.d("TAG", "A $t")
             continentalCardsList!!.clear()
             continentalCardsList!!.addAll(t!!)
-            continentalCardsAdapter!!.notifyDataSetChanged()
         })
 
     }
@@ -119,7 +114,6 @@ class ContinentalFragment : BaseFragment(), ContinentalCardsListener, Continenta
 
     fun initViews(view: View) {
         firebaseAnalytics = FirebaseAnalytics.getInstance(activity!!)
-        rvContinental = view.findViewById(R.id.rvContinental)
     }
 
     fun onShowDialog(List: ArrayList<List<String>>) {
@@ -139,13 +133,7 @@ class ContinentalFragment : BaseFragment(), ContinentalCardsListener, Continenta
         dialog.show()
     }
 
-    fun setRecyclerView() {
-        continentalCardsAdapter = ContinentalCardsAdapter(context, continentalCardsList!!, this)
-        rvContinental.apply {
-            rvContinental?.layoutManager = GridLayoutManager(context!!, 2)
-            rvContinental?.adapter = continentalCardsAdapter
-        }
-    }
+
 
     fun onLoadFBNativeAd1(view: View, context: Context) {
         nativeAdFB1 = NativeAd(context, Constants().getFbNativeContinental())

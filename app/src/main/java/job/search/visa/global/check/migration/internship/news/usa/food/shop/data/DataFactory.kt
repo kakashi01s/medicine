@@ -14,27 +14,27 @@ class DataFactory {
 
 //    GLOBAL
 
-    val URL_INDIA = BASE_URL + "1wcUzdb8NZjJNErZ5rzTgPt0E-J69vmLyy0H5XGpilBA/values/Sheet1!A2:E/"
-    val URL_USA = BASE_URL + "1Dzru7d8G2SrQag_kHOaLvZSMRoYwRZ0VW26ol5QJAoA/values/Sheet1!A2:E/"
-    val URL_RUSSIA = BASE_URL + "19hdD2CmpR8RyH2P9pCb8nerOPl_-NsJnYSyBW-vHTno/values/Sheet1!A2:E/"
-    val URL_PAKISTAN = BASE_URL + "1gNoBCsNnz1i7IZi5gCoPRyOsP5edTbVAq-cbgrgzFIA/values/Sheet1!A2:E/"
-    val URL_CHINA = BASE_URL + "15SzOuDAqLiP4KveraYspdDYDxds1Lb4BCrSF21I_mTk/values/Sheet1!A2:E/"
+    val URL_INDIA = BASE_URL + "1tSO3Xq0bwVbj4tHe0BzcypQqdnD9bdH27D4VMF-HrkA/values/Sheet1!A2:E/"
+    val URL_USA = BASE_URL + "1X24kzf_Cj9UARWIlnwCByH6Jy4pBU_hrysk8hk0TKbQ/values/Sheet1!A2:E/"
+    val URL_RUSSIA = BASE_URL + "1qQuUOMVdO_ZjcQdZUGPcIt6HsIZRrQbch7gInnkuBf8/values/Sheet1!A2:E/"
+    val URL_PAKISTAN = BASE_URL + "1ffZPUvxkVB-Ndf5x1HlhOI6RVUEzI8wVoXBr-R2blWY/values/Sheet1!A2:E/"
+    val URL_CHINA = BASE_URL + "1s38_fHXC18GM29Wf3-l73PdKrYzDEMkEa4XXI4y6X44/values/Sheet1!A2:E/"
     val URL_GERMANY = BASE_URL + "124dfricQC7b4WWv-y4YbPC1NL0I8XahGxz-f9DwQVvE/values/Sheet1!A2:E/"
-    val URL_TURKEY = BASE_URL + "1LpIuQJMF-KCkz9G-MD-P2Fll7itk4TJ9f54PciCkIQg/values/Sheet1!A2:E/"
-    val URL_UAE = BASE_URL + "1oxY5Cuyp7Bgm1zwLNgDCfqzbwmdkvGSkAat-mQ6_XsI/values/Sheet1!A2:E/"
-    val URL_ITALY = BASE_URL + "1_AC5nwdbq_kYbjB4-MpZoUhW4gTVaxwomE16WTkBNaA/values/Sheet1!A2:E/"
-    val URL_SWITZERLAND = BASE_URL + "1DMg_JtaqypxJMEPR_CQhqgxtfTQnUavlnxTqOzqBsig/values/Sheet1!A2:E/"
-    val URL_CANADA = BASE_URL + "15dsUSK4j4N5KsEWvZFJ9wYTT_xqdpLhuWs58iCA9qCo/values/Sheet1!A2:E/"
-    val URL_SINGAPORE = BASE_URL + "1IhE9VNu--XMRArOhUyyrqFZfz74YUpxBgWGr0ksEAHI/values/Sheet1!A2:E/"
-    val URL_SOUTH_AFRICA = BASE_URL + "1cwfn4BNOH7GiEkvV_1pga43oZRAAcX9cvkMO6r4Yyvs/values/Sheet1!A2:E/"
-    val URL_FRANCE = BASE_URL + "1tEXVhQ4gbqnwmXNhW8RKs_-2c6wTUKct5LoKlwhuuAU/values/Sheet1!A2:E/"
-    val URL_INDONECIA = BASE_URL + "1N7k8eXTY6wQ2yicQD_LQS_KCwTLbhxLVcS_3xiLFZkA/values/Sheet1!A2:E/"
-    val URL_UK = BASE_URL + "1K3g1c-RABQj_3n008Pu7z_okD0UKE_lBK9UwH3D_5dE/values/Sheet1!A2:E/"
-    val URL_JAPAN = BASE_URL + "1A98JMccc1LGINgstMu_Q9I-CXpyX4gf_2ayhxXjcLfQ/values/Sheet1!A2:E/"
-    val URL_BRAZIL = BASE_URL + "1LG2WkOHRYpmNOe9jC3YP_bTHzrUpNs-ry8wtsgUkT0U/values/Sheet1!A2:E/"
-    val URL_NIGERIA = BASE_URL + "1iEwQIFZDdd3Qj_yM27j-L8Gwv5GRAYbm8GuywXClwnE/values/Sheet1!A2:E/"
-    val URL_PORTUGAL = BASE_URL + "1GLW8THEyf1N9IFzdcVh_zC9tbl6JOdmLxk-U7jOMuWg/values/Sheet1!A2:E/"
-    val URL_GREECE = BASE_URL + "1CZnAjgaHk7gUS_c5SYpbEkErbvMSErcT0AZQGjHIFio/values/Sheet1!A2:E/"
+    val URL_TURKEY = BASE_URL + "1bELcA-ShYjYiVtpv1MqXKL9FeybsqKJMEVVbcdwYlgE/values/Sheet1!A2:E/"
+    val URL_UAE = BASE_URL + "16HOyYQCCeGRsAnTKXeYdluVqrYQQUyl_SAxdVIiQkRM/values/Sheet1!A2:E/"
+    val URL_ITALY = BASE_URL + "1wb3V4S-L6_b3W3NimUFMdiUn7WM7rlCnwNnAefydb7E/values/Sheet1!A2:E/"
+    val URL_SWITZERLAND = BASE_URL + "1HQb4R91zgi_r2XrPhzgFlpf5gOJNKHOZJSg6xhBinMw/values/Sheet1!A2:E/"
+    val URL_CANADA = BASE_URL + "1e_pxzxFCXHvSRaGjL2JLNBNJUA2DkCpWzehFMIaUqso/values/Sheet1!A2:E/"
+    val URL_SINGAPORE = BASE_URL + "10I7cFMSD-1_21am0frqh4RLtyrPIewcO6tAUAHLevzM/values/Sheet1!A2:E/"
+    val URL_SOUTH_AFRICA = BASE_URL + "1ZgYSVCi1n7FkFDubZ_15mqGLAadVQxty-Xncgy-giAU/values/Sheet1!A2:E/"
+    val URL_FRANCE = BASE_URL + "1_4MYYFHjB4S0jrJqZUwyESd1Be093vxKm-tRgotp3Uk/values/Sheet1!A2:E/"
+    val URL_INDONECIA = BASE_URL + "1ZjeRUtWG2gRozyVeojV-BJaPe0CuMexM9Ya_-Q_nDFo/values/Sheet1!A2:E/"
+    val URL_UK = BASE_URL + "1WO33rGqT3cOybo_P2DaVzWlKS9wmXBNbWW4FPGkCXK0/values/Sheet1!A2:E/"
+    val URL_JAPAN = BASE_URL + "1XxWxhO4pQr8dhU7_4IYRVEvHuVhlB6oZ8a2RJkpRDGI/values/Sheet1!A2:E/"
+    val URL_BRAZIL = BASE_URL + "1KMMC45_f2NILqBN0j8P7u3Vd9lSi6BNPex0r39VM750/values/Sheet1!A2:E/"
+    val URL_NIGERIA = BASE_URL + "1qbxEnHyM3sGae3p8XvphHvW8ammzHdjKdgpZETXOo0E/values/Sheet1!A2:E/"
+    val URL_PORTUGAL = BASE_URL + "1dWjMIfmykTs4J-0amzwe0RLn9GSu-yVyvoN4ZZ9NrNo/values/Sheet1!A2:E/"
+    val URL_GREECE = BASE_URL + "1qq0LvuIgLT2BQLmfYuukoDG7auqcnfoBEm7IvUVx_5M/values/Sheet1!A2:E/"
     val URL_AUSTRALIA = BASE_URL + "15rWJc1eGnSeJgdI8qofZXZU40YvgO71Wf8h4i2PQ9O4/values/Sheet1!A2:E/"
 
 //    CONTINENTS
@@ -52,9 +52,12 @@ class DataFactory {
 
 //    TOOLS
 
-    val URL_CURRENCY = BASE_URL + "1E2v__TgKGG6Fplyg2NntT9gvS-Otej3Fi9aV8yL9aTg/values/Sheet1!A2:E/"
-    val URL_COOKING_CHANNELS = BASE_URL + "1OdCtZzvGoK5X0QUOZaTIc7t6Vl0ct63inQDzx5sPfrk/values/Sheet1!A2:E/"
-    val URL_MOST_USEFUL_APPS = BASE_URL + "1cbygA6rvbwt3ANLNIUuuZVea9azX-C7x6TkvzUY5yo0/values/Sheet1!A2:E/"
+    val URL_DEALS = BASE_URL + "1-lbC0nk0xSYMPDPVDkynxUEFvLDpDL06Lq2-AC98iqQ/values/Sheet1!A2:E/"
+    val URL_SPORTS = BASE_URL + "1exDUxeV2mftXeyyrBw-A4syxr8FV_f-u5uV5h36dbmo/values/Sheet1!A2:E/"
+    val URL_FOOD = BASE_URL + "1Nb-3_mA2dqQ4DnyKaGZHHl0RqFrhFa2uUPY7Z-U6W8M/values/Sheet1!A2:E/"
+    val URL_GAMES = BASE_URL + "1CRax3ICXXrMhHeG2wfyakrmSDwPDruVvrTJ01JospQ0/values/Sheet1!A2:E/"
+    val URL_SHOPPINGTOOLS = BASE_URL + "1LoZ0zxjSCpRMtIKTOe9OoDZ-O-v8JTxMH_BErVyuYcg/values/Sheet1!A2:E/"
+    val URL_SOCIALMEDIA= BASE_URL + "1_WsMnRtAj9meo38TubXRFWQbOTWJaC-J-JAAFRi6iBk/values/Sheet1!A2:E/"
 
     val KEY = "AIzaSyB21bRVxi8IVsINBqyRDKwq3b6bWr4gRys"
 

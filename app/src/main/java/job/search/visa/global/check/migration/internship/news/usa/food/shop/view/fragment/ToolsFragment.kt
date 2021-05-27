@@ -23,15 +23,13 @@ import com.google.firebase.remoteconfig.FirebaseRemoteConfig
 import job.search.visa.global.check.migration.internship.news.usa.food.shop.utils.Constants
 import job.search.visa.global.check.migration.internship.news.usa.food.shop.view.MainActivity
 import job.search.visa.global.check.migration.internship.news.usa.food.shop.view.WebActivity
-import job.search.visa.global.check.migration.internship.news.usa.food.shop.view.adapter.CookingChannelsAdapter
-import job.search.visa.global.check.migration.internship.news.usa.food.shop.view.adapter.LiveNewsAdapter
-import job.search.visa.global.check.migration.internship.news.usa.food.shop.view.adapter.MostUsefulAppsAdapter
 import job.search.visa.global.check.migration.internship.news.usa.food.shop.view.listener.CookingItemClickListener
 import job.search.visa.global.check.migration.internship.news.usa.food.shop.view.listener.LiveNewsItemClickListener
 import job.search.visa.global.check.migration.internship.news.usa.food.shop.view.listener.MostUsefulAppsItemClickListener
 import job.search.visa.global.check.migration.internship.news.usa.food.shop.viewmodel.ToolsViewModel
 import kotlinx.android.synthetic.main.fragment_tools.*
 import job.search.visa.global.check.migration.internship.news.usa.food.shop.R
+import job.search.visa.global.check.migration.internship.news.usa.food.shop.view.adapter.*
 
 // TODO: Rename parameter arguments, choose names that match
 // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -52,12 +50,16 @@ class ToolsFragment : Fragment(), LiveNewsItemClickListener<List<String>>,
     var toolsViewModel: ToolsViewModel? = null
 
     var rvLiveNews: RecyclerView? = null
+    var rvdeals: RecyclerView? = null
+    var rvGames : RecyclerView? = null
     var rvMostUsefulApps: RecyclerView? = null
     var rvCookingChannels: RecyclerView? = null
 
     var firebaseAnalytics: FirebaseAnalytics? = null
     var firebaseRemoteConfig: FirebaseRemoteConfig? = null
     var liveNewsAdapter: LiveNewsAdapter? = null
+    var dealsAdapter: DealsAdapter? = null
+    var GamesAdapter: GamesAdapter? = null
     var mostUsefulAppsAdapter: MostUsefulAppsAdapter? = null
     var cookingChannelsAdapter: CookingChannelsAdapter? = null
     private var nativeAdFB1: NativeAd? = null
@@ -92,12 +94,12 @@ class ToolsFragment : Fragment(), LiveNewsItemClickListener<List<String>>,
         toolsViewModel = ViewModelProvider(activity!!).get(ToolsViewModel::class.java)
         toolsViewModel?.loadData()
 
-        toolsViewModel!!.currencyData.observe(this, Observer { t ->
+        toolsViewModel!!.dealsData.observe(this, Observer { t ->
             Log.d("NewsFrag", "NewsFragment Live $t")
-            liveNewsAdapter?.setItems(t)
+            dealsAdapter?.setItems(t)
         })
 
-        toolsViewModel!!.mostUsefulAppsData.observe(this, Observer { t ->
+        toolsViewModel!!.GamesData.observe(this, Observer { t ->
             Log.d("NewsFrag", "NewsFragment Most $t")
             mostUsefulAppsAdapter?.setItems(t)
         })
@@ -126,17 +128,18 @@ class ToolsFragment : Fragment(), LiveNewsItemClickListener<List<String>>,
 
     fun initViews(view: View){
         firebaseAnalytics = FirebaseAnalytics.getInstance(activity!!)
-        rvLiveNews = view.findViewById(R.id.rvLiveNews)
-        rvMostUsefulApps = view.findViewById(R.id.rvMostUsefulApps)
-        rvCookingChannels = view.findViewById(R.id.rvCookingChannels)
+    //    rvLiveNews = view.findViewById(R.id.rvLiveNews)
+      //  rvMostUsefulApps = view.findViewById(R.id.rvMostUsefulApps)
+            //rvCookingChannels = view.findViewById(R.id.rvCookingChannels)
     }
 
     fun setRecyclerView(){
-        liveNewsAdapter = LiveNewsAdapter(context)
-        liveNewsAdapter!!.setListener(this)
-        rvLiveNews.apply {
-            rvLiveNews?.layoutManager = GridLayoutManager(activity, 3)
-            rvLiveNews?.adapter = liveNewsAdapter
+
+        dealsAdapter = DealsAdapter(context)
+        dealsAdapter!!.setListener(this)
+        rvdeals.apply {
+            rvdeals?.layoutManager = GridLayoutManager(activity, 4)
+            rvdeals?.adapter = dealsAdapter
         }
 
         mostUsefulAppsAdapter = MostUsefulAppsAdapter(context)

@@ -17,19 +17,28 @@ class ToolsViewModel : ViewModel() {
     private var context: Context? = null
     var compositeDisposable: CompositeDisposable? = null
 
-    var currencyData: MutableLiveData<List<List<String>>?> = MutableLiveData()
-    var mostUsefulAppsData: MutableLiveData<List<List<String>>?> = MutableLiveData()
-    var cookingChannelsData: MutableLiveData<List<List<String>>?> = MutableLiveData()
+    var dealsData: MutableLiveData<List<List<String>>?> = MutableLiveData()
+    var socialmediaData: MutableLiveData<List<List<String>>?> = MutableLiveData()
+    var shoppingtoolsData: MutableLiveData<List<List<String>>?> = MutableLiveData()
+    var foodData: MutableLiveData<List<List<String>>?> = MutableLiveData()
+    var sportsData: MutableLiveData<List<List<String>>?> = MutableLiveData()
+    var gamesData: MutableLiveData<List<List<String>>?> = MutableLiveData()
+
 
     fun loadData(){
-        Log.d("TAG", "loadData: News ")
+        Log.d("TAG", "loadData: News")
         compositeDisposable = CompositeDisposable()
-        fetchLiveNews()
-        fetchMostUsefulApps()
-        fetchCookingChannels()
+        fetchdeals()
+        fetchsports()
+        fetchgames()
+        fetchshoppingtools()
+        fetchfood()
+        fetchsocialmedia()
+
+
     }
 
-    private fun fetchLiveNews(){
+    private fun fetchdeals(){
         Log.d("TAG", "fetchAllApps: ")
         val gov: gov? = gov.get()
 
@@ -38,15 +47,15 @@ class ToolsViewModel : ViewModel() {
         }
 
         val disposable: Disposable?
-        disposable = dataService?.fetchAllApps(DataFactory().URL_CURRENCY, DataFactory().KEY)
+        disposable = dataService?.fetchAllApps(DataFactory().URL_DEALS, DataFactory().KEY)
             ?.subscribeOn(Schedulers.io())
             ?.observeOn(AndroidSchedulers.mainThread())
             ?.doOnError(Consumer { t ->
-                Log.d("TAG", "fetchLiveNews Error ${t.localizedMessage}")
+                Log.d("TAG", "fetchdeals Error ${t.localizedMessage}")
             })
             ?.subscribe(Consumer { t ->
-                Log.d("TAG", "fetchLiveNews Response ${t.getValues()}")
-                changeLiveNewsDataSet(t.getValues())
+                Log.d("TAG", "fetchdeals Response ${t.getValues()}")
+                changeDealsDataSet(t.getValues())
             })
 
         if (disposable != null) {
@@ -54,8 +63,10 @@ class ToolsViewModel : ViewModel() {
         }
     }
 
-    private fun fetchMostUsefulApps(){
-        Log.d("TAG", "fetchMostUsefullApps: ")
+
+
+    private fun fetchsocialmedia(){
+        Log.d("TAG", "fetchsocialmedia: ")
         val gov: gov? = gov.get()
 
         val dataService by lazy {
@@ -63,15 +74,15 @@ class ToolsViewModel : ViewModel() {
         }
 
         val disposable: Disposable?
-        disposable = dataService?.fetchAllApps(DataFactory().URL_MOST_USEFUL_APPS, DataFactory().KEY)
+        disposable = dataService?.fetchAllApps(DataFactory().URL_SOCIALMEDIA, DataFactory().KEY)
             ?.subscribeOn(Schedulers.io())
             ?.observeOn(AndroidSchedulers.mainThread())
             ?.doOnError(Consumer { t ->
-                Log.d("TAG", "fetchMostUsefulApps Error ${t.localizedMessage}")
+                Log.d("TAG", "fetchsocialmedia Error ${t.localizedMessage}")
             })
             ?.subscribe(Consumer { t ->
-                Log.d("TAG", "fetchMostUsefulApps Response ${t.getValues()}")
-                changeMostUsefulAppsSet(t.getValues())
+                Log.d("TAG", "fetchsocialmedia Response ${t.getValues()}")
+                changesocialmediaDataSet(t.getValues())
             })
 
         if (disposable != null) {
@@ -79,8 +90,10 @@ class ToolsViewModel : ViewModel() {
         }
     }
 
-    private fun fetchCookingChannels(){
-        Log.d("TAG", "fetchCookingChannels: ")
+
+
+    private fun fetchshoppingtools(){
+        Log.d("TAG", "fetchshoppingtools: ")
         val gov: gov? = gov.get()
 
         val dataService by lazy {
@@ -88,14 +101,15 @@ class ToolsViewModel : ViewModel() {
         }
 
         val disposable: Disposable?
-        disposable = dataService?.fetchAllApps(DataFactory().URL_COOKING_CHANNELS, DataFactory().KEY)
+        disposable = dataService?.fetchAllApps(DataFactory().URL_SHOPPINGTOOLS, DataFactory().KEY)
             ?.subscribeOn(Schedulers.io())
             ?.observeOn(AndroidSchedulers.mainThread())
             ?.doOnError(Consumer { t ->
-                Log.d("TAG", "fetchMostUsefulApps Error ${t.localizedMessage}")
+                Log.d("TAG", "fetchshoppingtools Error ${t.localizedMessage}")
             })
             ?.subscribe(Consumer { t ->
-                changeCookingChannelsSet(t.getValues())
+                Log.d("TAG", "fetchshoppingtools Response ${t.getValues()}")
+                changeshoppingtoolsDataSet(t.getValues())
             })
 
         if (disposable != null) {
@@ -103,18 +117,103 @@ class ToolsViewModel : ViewModel() {
         }
     }
 
-    fun changeCookingChannelsSet(liveNewsList: List<List<String>>?){
-        cookingChannelsData.value = liveNewsList
+
+
+    private fun fetchfood(){
+        Log.d("TAG", "fetchfood: ")
+        val gov: gov? = gov.get()
+
+        val dataService by lazy {
+            DataFactory.create()
+        }
+
+        val disposable: Disposable?
+        disposable = dataService?.fetchAllApps(DataFactory().URL_FOOD, DataFactory().KEY)
+            ?.subscribeOn(Schedulers.io())
+            ?.observeOn(AndroidSchedulers.mainThread())
+            ?.doOnError(Consumer { t ->
+                Log.d("TAG", "fetchfood Error ${t.localizedMessage}")
+            })
+            ?.subscribe(Consumer { t ->
+                Log.d("TAG", "fetchfood Response ${t.getValues()}")
+                changefoodDataSet(t.getValues())
+            })
+
+        if (disposable != null) {
+            compositeDisposable?.add(disposable)
+        }
     }
 
-    fun changeLiveNewsDataSet(liveNewsList: List<List<String>>?){
-        currencyData.value = liveNewsList
+
+
+    private fun fetchsports(){
+        Log.d("TAG", "fetchsports: ")
+        val gov: gov? = gov.get()
+
+        val dataService by lazy {
+            DataFactory.create()
+        }
+
+        val disposable: Disposable?
+        disposable = dataService?.fetchAllApps(DataFactory().URL_SPORTS, DataFactory().KEY)
+            ?.subscribeOn(Schedulers.io())
+            ?.observeOn(AndroidSchedulers.mainThread())
+            ?.doOnError(Consumer { t ->
+                Log.d("TAG", "fetchsports Error ${t.localizedMessage}")
+            })
+            ?.subscribe(Consumer { t ->
+                Log.d("TAG", "fetchMostsports Response ${t.getValues()}")
+                changesportsDataSet(t.getValues())
+            })
+
+        if (disposable != null) {
+            compositeDisposable?.add(disposable)
+        }
     }
 
-    fun changeMostUsefulAppsSet(mostUsefulAppsList: List<List<String>>?){
-        mostUsefulAppsData.value = mostUsefulAppsList
-    }
 
+
+    private fun fetchgames(){
+        Log.d("TAG", "fetchgames: ")
+        val gov: gov? = gov.get()
+
+        val dataService by lazy {
+            DataFactory.create()
+        }
+
+        val disposable: Disposable?
+        disposable = dataService?.fetchAllApps(DataFactory().URL_GAMES, DataFactory().KEY)
+            ?.subscribeOn(Schedulers.io())
+            ?.observeOn(AndroidSchedulers.mainThread())
+            ?.doOnError(Consumer { t ->
+                Log.d("TAG", "fetchgames Error ${t.localizedMessage}")
+            })
+            ?.subscribe(Consumer { t ->
+                changegamesDataSet(t.getValues())
+            })
+
+        if (disposable != null) {
+            compositeDisposable?.add(disposable)
+        }
+    }
+    private fun changegamesDataSet(gamesList: List<List<String>>?) {
+        gamesData.value = gamesList
+    }
+    private fun changeDealsDataSet(Dealslist: List<List<String>>?) {
+        dealsData.value = Dealslist
+    }
+    private fun changesocialmediaDataSet(socialmedialist: List<List<String>>?) {
+        socialmediaData.value = socialmedialist
+    }
+    private fun changeshoppingtoolsDataSet(shoppingtoolslist: List<List<String>>?) {
+        shoppingtoolsData.value = shoppingtoolslist
+    }
+    private fun changefoodDataSet(foodlist: List<List<String>>?) {
+        foodData.value = foodlist
+    }
+    private fun changesportsDataSet(sportslist: List<List<String>>?) {
+        sportsData.value = sportslist
+    }
     private fun unSubscribeFromObservable() {
         if (compositeDisposable != null && !compositeDisposable!!.isDisposed) {
             compositeDisposable!!.dispose()
