@@ -8,7 +8,7 @@ import androidx.annotation.LayoutRes
 import androidx.recyclerview.widget.RecyclerView
 import job.search.visa.global.check.migration.internship.news.usa.food.shop.base.listener.BaseRecyclerListener
 import job.search.visa.global.check.migration.internship.news.usa.food.shop.base.viewholder.BaseViewHolder
-import job.search.visa.global.check.migration.internship.news.usa.food.shop.view.fragment.ToolsFragment
+import job.search.visa.global.check.migration.internship.news.usa.food.shop.view.fragment.CategoryFragment
 import java.util.*
 
 abstract class GenericRecyclerAdapter<T : Any, L : BaseRecyclerListener?, VH : BaseViewHolder<T, L>?>(
@@ -161,7 +161,7 @@ abstract class GenericRecyclerAdapter<T : Any, L : BaseRecyclerListener?, VH : B
      *
      * @param listener click listener
      */
-    fun setListener(listener: ToolsFragment) {
+    fun setListener(listener: L) {
         this.listener = listener
     }
 

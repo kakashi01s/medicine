@@ -24,7 +24,8 @@
             app:contentPadding="4dp"
             >
 
-            <androidx.constraintlayout.widget.ConstraintLayout
+            <LinearLayout
+                android:id="@+id/llvisastatus"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:padding="16dp">
@@ -43,21 +44,8 @@
                     app:layout_constraintLeft_toLeftOf="parent"
                     app:layout_constraintTop_toTopOf="parent" />
 
-                <TextView
-                    android:id="@+id/card_visastatus_body"
-                    android:layout_width="wrap_content"
-                    android:layout_height="40dp"
-                    android:layout_margin="5dp"
-                    android:layout_marginTop="10dp"
-                    android:padding="5dp"
-                    android:textColor="@color/black"
-                    android:textSize="20dp"
-                    app:layout_constraintLeft_toLeftOf="parent"
-                    app:layout_constraintTop_toBottomOf="@id/card_visastatus_title" />
 
-
-
-            </androidx.constraintlayout.widget.ConstraintLayout>
+            </LinearLayout>
         </androidx.cardview.widget.CardView>
 
         <androidx.cardview.widget.CardView
@@ -73,7 +61,8 @@
             app:contentPadding="4dp"
             >
 
-            <androidx.constraintlayout.widget.ConstraintLayout
+            <LinearLayout
+                android:id="@+id/lltravel"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:padding="16dp">
@@ -92,21 +81,8 @@
                     app:layout_constraintLeft_toLeftOf="parent"
                     app:layout_constraintTop_toTopOf="parent" />
 
-                <TextView
-                    android:id="@+id/card_travel_body"
-                    android:layout_width="wrap_content"
-                    android:layout_height="40dp"
-                    android:layout_margin="5dp"
-                    android:layout_marginTop="10dp"
-                    android:padding="5dp"
-                    android:textColor="@color/black"
-                    android:textSize="20dp"
-                    app:layout_constraintLeft_toLeftOf="parent"
-                    app:layout_constraintTop_toBottomOf="@id/card_travel_title" />
 
-
-
-            </androidx.constraintlayout.widget.ConstraintLayout>
+            </LinearLayout>
         </androidx.cardview.widget.CardView>
 
         <androidx.cardview.widget.CardView
@@ -121,7 +97,8 @@
             app:cardElevation="4dp"
             app:contentPadding="4dp">
 
-            <androidx.constraintlayout.widget.ConstraintLayout
+            <LinearLayout
+                android:id="@+id/llcitizenship"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:padding="16dp">
@@ -140,20 +117,7 @@
                     app:layout_constraintLeft_toLeftOf="parent"
                     app:layout_constraintTop_toTopOf="parent" />
 
-                <TextView
-                    android:id="@+id/card_citizenship_body"
-                    android:layout_width="wrap_content"
-                    android:layout_height="40dp"
-                    android:layout_margin="5dp"
-                    android:layout_marginTop="10dp"
-                    android:padding="5dp"
-                    android:textColor="@color/black"
-                    android:textSize="20dp"
-                    app:layout_constraintLeft_toLeftOf="parent"
-                    app:layout_constraintTop_toBottomOf="@id/card_citizenship_title" />
-
-
-            </androidx.constraintlayout.widget.ConstraintLayout>
+            </LinearLayout>
 
 
         </androidx.cardview.widget.CardView>
@@ -184,7 +148,8 @@
             app:cardElevation="4dp"
             app:contentPadding="4dp">
 
-            <androidx.constraintlayout.widget.ConstraintLayout
+            <LinearLayout
+                android:id="@+id/llmigration"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:padding="16dp">
@@ -203,20 +168,8 @@
                     app:layout_constraintLeft_toLeftOf="parent"
                     app:layout_constraintTop_toTopOf="parent" />
 
-                <TextView
-                    android:id="@+id/card_migration_body"
-                    android:layout_width="wrap_content"
-                    android:layout_height="40dp"
-                    android:layout_margin="5dp"
-                    android:layout_marginTop="10dp"
-                    android:padding="5dp"
-                    android:textColor="@color/black"
-                    android:textSize="20dp"
-                    app:layout_constraintLeft_toLeftOf="parent"
-                    app:layout_constraintTop_toBottomOf="@id/card_migration_title" />
 
-
-            </androidx.constraintlayout.widget.ConstraintLayout>
+            </LinearLayout>
 
 
         </androidx.cardview.widget.CardView>
@@ -235,7 +188,8 @@
             app:cardElevation="4dp"
             app:contentPadding="4dp">
 
-            <androidx.constraintlayout.widget.ConstraintLayout
+            <LinearLayout
+                android:id="@+id/llglobaluniversities"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:padding="16dp">
@@ -254,19 +208,7 @@
                     app:layout_constraintLeft_toLeftOf="parent"
                     app:layout_constraintTop_toTopOf="parent" />
 
-                <TextView
-                    android:id="@+id/card_golobaluniversities_body"
-                    android:layout_width="wrap_content"
-                    android:layout_height="40dp"
-                    android:layout_margin="5dp"
-                    android:layout_marginTop="10dp"
-                    android:padding="5dp"
-                    android:textColor="@color/black"
-                    android:textSize="20dp"
-                    app:layout_constraintLeft_toLeftOf="parent"
-                    app:layout_constraintTop_toBottomOf="@id/card_golobaluniversities_title" />
-
-            </androidx.constraintlayout.widget.ConstraintLayout>
+            </LinearLayout>
 
 
         </androidx.cardview.widget.CardView>
@@ -283,7 +225,8 @@
             app:cardElevation="4dp"
             app:contentPadding="4dp">
 
-            <androidx.constraintlayout.widget.ConstraintLayout
+            <LinearLayout
+                android:id="@+id/llweather"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:padding="16dp">
@@ -302,20 +245,8 @@
                     app:layout_constraintLeft_toLeftOf="parent"
                     app:layout_constraintTop_toTopOf="parent" />
 
-                <TextView
-                    android:id="@+id/card_weather_body"
-                    android:layout_width="wrap_content"
-                    android:layout_height="40dp"
-                    android:layout_margin="5dp"
-                    android:layout_marginTop="10dp"
-                    android:padding="5dp"
-                    android:textColor="@color/black"
-                    android:textSize="20dp"
-                    app:layout_constraintLeft_toLeftOf="parent"
-                    app:layout_constraintTop_toBottomOf="@id/card_weather_title" />
 
-
-            </androidx.constraintlayout.widget.ConstraintLayout>
+            </LinearLayout>
 
 
         </androidx.cardview.widget.CardView>
@@ -332,7 +263,8 @@
             app:cardElevation="4dp"
             app:contentPadding="4dp">
 
-            <androidx.constraintlayout.widget.ConstraintLayout
+            <LinearLayout
+                android:id="@+id/llnews"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:padding="16dp">
@@ -351,22 +283,10 @@
                     app:layout_constraintLeft_toLeftOf="parent"
                     app:layout_constraintTop_toTopOf="parent" />
 
-                <TextView
-                    android:id="@+id/card_News_body"
-                    android:layout_width="wrap_content"
-                    android:layout_height="40dp"
-                    android:layout_margin="5dp"
-                    android:layout_marginTop="10dp"
-                    android:padding="5dp"
-                    android:textColor="@color/black"
-                    android:textSize="20dp"
-                    app:layout_constraintLeft_toLeftOf="parent"
-                    app:layout_constraintTop_toBottomOf="@id/card_News_title" />
-            </androidx.constraintlayout.widget.ConstraintLayout>
 
 
+    </LinearLayout>
         </androidx.cardview.widget.CardView>
-
     </LinearLayout>
 </ScrollView>
 

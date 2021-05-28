@@ -21,7 +21,7 @@ import job.search.visa.global.check.migration.internship.news.usa.food.shop.util
 import job.search.visa.global.check.migration.internship.news.usa.food.shop.utils.ForceUpdateChecker
 import job.search.visa.global.check.migration.internship.news.usa.food.shop.viewmodel.CategoryViewModel
 import job.search.visa.global.check.migration.internship.news.usa.food.shop.viewmodel.HomeViewModel
-import job.search.visa.global.check.migration.internship.news.usa.food.shop.viewmodel.ContinentalViewModel
+import job.search.visa.global.check.migration.internship.news.usa.food.shop.viewmodel.VisaViewModel
 import job.search.visa.global.check.migration.internship.news.usa.food.shop.viewpager.AppPagerAdapter
 import java.io.*
 
@@ -31,7 +31,7 @@ class MainActivity : BaseActivity(), ForceUpdateChecker.OnUpdateNeededListener {
     var viewPagerTab: TabLayout? =null
     var fragmentPagerAdapter: FragmentPagerAdapter ?= null
     var homeViewModel: HomeViewModel? = null
-    var continentalViewModel: ContinentalViewModel? = null
+    var visaViewModel: VisaViewModel? = null
     var categoryViewModel: CategoryViewModel? = null
     var firebaseAnalytics: FirebaseAnalytics? = null
     override val bindingVariable: Int
@@ -52,7 +52,7 @@ class MainActivity : BaseActivity(), ForceUpdateChecker.OnUpdateNeededListener {
         OneSignal.initWithContext(this);
         OneSignal.setAppId(ONESIGNAL_APP_ID);
 
-        continentalViewModel = ViewModelProvider(this).get(ContinentalViewModel::class.java)
+        visaViewModel = ViewModelProvider(this).get(VisaViewModel::class.java)
         homeViewModel = ViewModelProvider(this).get(HomeViewModel::class.java)
         categoryViewModel = ViewModelProvider(this).get(CategoryViewModel::class.java)
         updateJson()
@@ -120,7 +120,7 @@ class MainActivity : BaseActivity(), ForceUpdateChecker.OnUpdateNeededListener {
 
     override fun onDestroy() {
         homeViewModel?.reset()
-        continentalViewModel?.reset()
+        visaViewModel?.reset()
         categoryViewModel?.reset()
         super.onDestroy()
     }

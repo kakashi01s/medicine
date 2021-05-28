@@ -36,7 +36,8 @@
             app:contentPadding="4dp"
             >
 
-            <androidx.constraintlayout.widget.ConstraintLayout
+            <LinearLayout
+                android:id="@+id/llgames"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:padding="16dp">
@@ -55,28 +56,11 @@
                     app:layout_constraintLeft_toLeftOf="parent"
                     app:layout_constraintTop_toTopOf="parent" />
 
-                <TextView
-                    android:id="@+id/card_games_body"
-                    android:layout_width="wrap_content"
-                    android:layout_height="40dp"
-                    android:layout_margin="5dp"
-                    android:layout_marginTop="10dp"
-                    android:padding="5dp"
-                    android:textColor="@color/black"
-                    android:textSize="20dp"
-                    app:layout_constraintLeft_toLeftOf="parent"
-                    app:layout_constraintTop_toBottomOf="@id/card_games_title" />
 
 
 
-            </androidx.constraintlayout.widget.ConstraintLayout>
+            </LinearLayout>
 
-            <androidx.recyclerview.widget.RecyclerView
-                android:id="@+id/rvgames"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:padding="10dp"
-                android:layout_marginTop="5dp"/>
 
         </androidx.cardview.widget.CardView>
 
@@ -93,7 +77,8 @@
             app:contentPadding="4dp"
             >
 
-        <androidx.constraintlayout.widget.ConstraintLayout
+        <LinearLayout
+            android:id="@+id/llfood"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:padding="16dp">
@@ -124,14 +109,7 @@
                 app:layout_constraintLeft_toLeftOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/card_food_title" />
 
-            <androidx.recyclerview.widget.RecyclerView
-                android:id="@+id/rvfood"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:padding="10dp"
-                android:layout_marginTop="5dp"/>
-
-        </androidx.constraintlayout.widget.ConstraintLayout>
+        </LinearLayout>
         </androidx.cardview.widget.CardView>
 
         <androidx.cardview.widget.CardView
@@ -146,7 +124,9 @@
             app:cardElevation="4dp"
             app:contentPadding="4dp">
 
-            <androidx.constraintlayout.widget.ConstraintLayout
+            <LinearLayout
+                android:orientation="vertical"
+                android:id="@+id/llshoppingtools"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:padding="16dp">
@@ -165,26 +145,9 @@
                     app:layout_constraintLeft_toLeftOf="parent"
                     app:layout_constraintTop_toTopOf="parent" />
 
-                <TextView
-                    android:id="@+id/card_shopping_body"
-                    android:layout_width="wrap_content"
-                    android:layout_height="40dp"
-                    android:layout_margin="5dp"
-                    android:layout_marginTop="10dp"
-                    android:padding="5dp"
-                    android:textColor="@color/black"
-                    android:textSize="20dp"
-                    app:layout_constraintLeft_toLeftOf="parent"
-                    app:layout_constraintTop_toBottomOf="@id/card_shopping_title" />
 
 
-            </androidx.constraintlayout.widget.ConstraintLayout>
-            <androidx.recyclerview.widget.RecyclerView
-                android:id="@+id/rvshopping"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:padding="10dp"
-                android:layout_marginTop="5dp"/>
+            </LinearLayout>
 
         </androidx.cardview.widget.CardView>
 
@@ -230,7 +193,8 @@
                     app:cardElevation="4dp"
                     app:contentPadding="4dp">
 
-                    <androidx.constraintlayout.widget.ConstraintLayout
+                    <LinearLayout
+                        android:id="@+id/lldeals"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         android:padding="16dp">
@@ -249,27 +213,8 @@
                             app:layout_constraintLeft_toLeftOf="parent"
                             app:layout_constraintTop_toTopOf="parent" />
 
-                        <TextView
-                            android:id="@+id/card_deals_body"
-                            android:layout_width="wrap_content"
-                            android:layout_height="40dp"
-                            android:layout_margin="5dp"
-                            android:layout_marginTop="10dp"
-                            android:padding="5dp"
-                            android:textColor="@color/black"
-                            android:textSize="20dp"
-                            app:layout_constraintLeft_toLeftOf="parent"
-                            app:layout_constraintTop_toBottomOf="@id/card_deals_title" />
 
-
-                    </androidx.constraintlayout.widget.ConstraintLayout>
-                    <androidx.recyclerview.widget.RecyclerView
-                        android:id="@+id/rvdeals"
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:padding="10dp"
-                        android:layout_marginTop="5dp"/>
-
+                    </LinearLayout>
                 </androidx.cardview.widget.CardView>
 
 
@@ -286,7 +231,8 @@
                     app:cardElevation="4dp"
                     app:contentPadding="4dp">
 
-                    <androidx.constraintlayout.widget.ConstraintLayout
+                    <LinearLayout
+                        android:id="@+id/llsocialmedia"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         android:padding="16dp">
@@ -305,25 +251,9 @@
                             app:layout_constraintLeft_toLeftOf="parent"
                             app:layout_constraintTop_toTopOf="parent" />
 
-                        <TextView
-                            android:id="@+id/card_socialmedia_body"
-                            android:layout_width="wrap_content"
-                            android:layout_height="40dp"
-                            android:layout_margin="5dp"
-                            android:layout_marginTop="10dp"
-                            android:padding="5dp"
-                            android:textColor="@color/black"
-                            android:textSize="20dp"
-                            app:layout_constraintLeft_toLeftOf="parent"
-                            app:layout_constraintTop_toBottomOf="@id/card_socialmedia_title" />
 
-                    </androidx.constraintlayout.widget.ConstraintLayout>
-                    <androidx.recyclerview.widget.RecyclerView
-                        android:id="@+id/rvsocialmedia"
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:padding="10dp"
-                        android:layout_marginTop="5dp"/>
+                    </LinearLayout>
+
                 </androidx.cardview.widget.CardView>
 
                 <androidx.cardview.widget.CardView
@@ -338,7 +268,8 @@
                     app:cardElevation="4dp"
                     app:contentPadding="4dp">
 
-                    <androidx.constraintlayout.widget.ConstraintLayout
+                    <LinearLayout
+                        android:id="@+id/llsports"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         android:padding="16dp">
@@ -357,26 +288,8 @@
                             app:layout_constraintLeft_toLeftOf="parent"
                             app:layout_constraintTop_toTopOf="parent" />
 
-                        <TextView
-                            android:id="@+id/card_sports_body"
-                            android:layout_width="wrap_content"
-                            android:layout_height="40dp"
-                            android:layout_margin="5dp"
-                            android:layout_marginTop="10dp"
-                            android:padding="5dp"
-                            android:textColor="@color/black"
-                            android:textSize="20dp"
-                            app:layout_constraintLeft_toLeftOf="parent"
-                            app:layout_constraintTop_toBottomOf="@id/card_sports_title" />
+                    </LinearLayout>
 
-                    </androidx.constraintlayout.widget.ConstraintLayout>
-
-                    <androidx.recyclerview.widget.RecyclerView
-                        android:id="@+id/rvsports"
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:padding="10dp"
-                        android:layout_marginTop="5dp"/>
                 </androidx.cardview.widget.CardView>
 
             </LinearLayout>

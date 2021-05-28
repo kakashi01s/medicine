@@ -37,18 +37,19 @@ class DataFactory {
     val URL_GREECE = BASE_URL + "1qq0LvuIgLT2BQLmfYuukoDG7auqcnfoBEm7IvUVx_5M/values/Sheet1!A2:E/"
     val URL_AUSTRALIA = BASE_URL + "15rWJc1eGnSeJgdI8qofZXZU40YvgO71Wf8h4i2PQ9O4/values/Sheet1!A2:E/"
 
-//    CONTINENTS
-
-//    val URL_ASIA = BASE_URL + "1SRMmi-t_jTCsyvQ_A_CGZWvBWfuS1cvLy1q2ol2roOM/values/Sheet1!A2:E/"
-//    val URL_AFRICA = BASE_URL + "1X_ZteL3l19y4C9D6vp-3mqi8oVwKeC3v2Uun_WZMsIc/values/Sheet1!A2:E/"
-//    val URL_EUROPE = BASE_URL + "16PTjneWB4928P-JCFw6_b-YtYOUWiflQSzFwZuPI7Bo/values/Sheet1!A2:E/"
-//    val URL_NORTH_AMERICA = BASE_URL + "1lAQ7MBtoaW9aEpQ6bkNHmqC8gvREJT9iuADqLWiP0X4/values/Sheet1!A2:E/"
-//    val URL_SOUTH_AMERICA = BASE_URL + "1aHU-Rf_a3_kq2kch4BH7IIrh97L-gvEbVBcQSGI6dtU/values/Sheet1!A2:E/"
-
     val URL_CONTINENTAL_CARD = BASE_URL + "1tp9ke_1ZmiLmtk1QEo8zXUAtmqO904sWqUpqJMYAQ5s/values/Sheet1!A2:D/"
 
     val URL_CARD_START = BASE_URL
     val URL_CARD_END = "/values/Sheet1!A2:E/"
+//    VISA
+    val URL_VISA = BASE_URL + "1uSSHhwbzUMwDSWewo0EizH5puLy6oDDs92iCu9r7igE/values/Sheet1!A2:E/"
+    val URL_TRAVEL = BASE_URL + "1KsRKvUYkWVlV7ncxd1hRmhnRDMPMt5ueBplvVu7q4a0/values/Sheet1!A2:E/"
+    val URL_CITIZENSHIP = BASE_URL + "1ptq-2-VFItR_GLRiJ6f3x9GeR3dYYAc4OCfmpLTagfs/values/Sheet1!A2:E/"
+    val URL_MIGRATION = BASE_URL + "1CKTNcByzf-6o36L5bwvg-cqDOKTVvKlSsG3DlCtp7sI/values/Sheet1!A2:E/"
+    val URL_NEWS = BASE_URL + "1dhDzgLIHZg1FZqjBLYqmT8YNOqav8QpHH0BsItMs12M/values/Sheet1!A2:E/"
+    val URL_WEATHER = BASE_URL + "1odaLwWZkZi14OESX2TTHfJUx9thwIZwgUUo7wm0SmMA/values/Sheet1!A2:E/"
+    val URL_GLOBALUNIVERSITY = BASE_URL + "1oDwWDDO1gAMKd1AJ5ugU57MyVwdQH-Ee_icQCrRXKy0/values/Sheet1!A2:E/"
+
 
 //    TOOLS
 

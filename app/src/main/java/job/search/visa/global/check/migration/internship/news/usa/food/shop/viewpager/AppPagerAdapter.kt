@@ -5,7 +5,7 @@ import androidx.fragment.app.FragmentManager
 import androidx.fragment.app.FragmentPagerAdapter
 import job.search.visa.global.check.migration.internship.news.usa.food.shop.model.AllAppsModel
 import job.search.visa.global.check.migration.internship.news.usa.food.shop.view.fragment.CategoryFragment
-import job.search.visa.global.check.migration.internship.news.usa.food.shop.view.fragment.ContinentalFragment
+import job.search.visa.global.check.migration.internship.news.usa.food.shop.view.fragment.VisaFragment
 import job.search.visa.global.check.migration.internship.news.usa.food.shop.view.fragment.HomeFragment
 import job.search.visa.global.check.migration.internship.news.usa.food.shop.view.fragment.ToolsFragment
 
@@ -20,7 +20,7 @@ class AppPagerAdapter(fragmentManager: FragmentManager,val homeFragmentData: All
     override fun getItem(position: Int): Fragment {
         when (position){
             0 -> {
-                return ContinentalFragment.newInstance(position, "Continent")
+                return VisaFragment.newInstance(position, "Continent")
             }
             1 -> {
                 Log.d("HOme", homeFragmentData.toString())
