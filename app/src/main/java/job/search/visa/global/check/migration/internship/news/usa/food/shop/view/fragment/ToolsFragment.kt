@@ -57,6 +57,7 @@ class ToolsFragment : BaseFragment(), ToolsstoresClickListener<List<String>> {
     var llsocialmedia: LinearLayout? = null
     var llshoppingtools: LinearLayout? = null
     var llfood: LinearLayout? = null
+    var llmostusefulapps: LinearLayout? = null
 
     //array list
     var sportsList: ArrayList<List<String>>? = ArrayList()
@@ -65,10 +66,11 @@ class ToolsFragment : BaseFragment(), ToolsstoresClickListener<List<String>> {
     var socialmediaList: ArrayList<List<String>>? = ArrayList()
     var foodList: ArrayList<List<String>>? = ArrayList()
     var shoppingtoolsList: ArrayList<List<String>>? = ArrayList()
+    var mostusefulappsList: ArrayList<List<String>>? = ArrayList()
 
     var firebaseAnalytics: FirebaseAnalytics? = null
     var firebaseRemoteConfig: FirebaseRemoteConfig? = null
-    var liveNewsAdapter: LiveNewsAdapter? = null
+
 
     private var nativeAdFB1: NativeAd? = null
     private var nativeAdFB2: NativeAd? = null
@@ -134,7 +136,10 @@ class ToolsFragment : BaseFragment(), ToolsstoresClickListener<List<String>> {
             Log.d("News Frag", "onViewCreated: socialmediaLiveData $t")
             socialmediaList?.addAll(t!!)
         })
-
+        toolsViewModel!!.mostusefulappsData.observe(this, Observer { t->
+            Log.d("mostusefulapps Frag" , "onViewCreated: mostusefulappsLiveData")
+            mostusefulappsList?.addAll((t!!))
+        })
         lldeals!!.setOnClickListener {
             onShowStores(dealsList!!, view)
         }
@@ -152,8 +157,9 @@ class ToolsFragment : BaseFragment(), ToolsstoresClickListener<List<String>> {
         }
         llgames!!.setOnClickListener {
             onShowStores(gamesList!!, view)
-
-
+        }
+        llmostusefulapps!!.setOnClickListener {
+            onShowStores(mostusefulappsList!!, view)
         }
     }
 
@@ -180,6 +186,7 @@ class ToolsFragment : BaseFragment(), ToolsstoresClickListener<List<String>> {
         llgames = view.findViewById(job.search.visa.global.check.migration.internship.news.usa.food.shop.R.id.llgames)
         llshoppingtools = view.findViewById(job.search.visa.global.check.migration.internship.news.usa.food.shop.R.id.llshoppingtools)
         llsocialmedia = view.findViewById(job.search.visa.global.check.migration.internship.news.usa.food.shop.R.id.llsocialmedia)
+        llmostusefulapps = view.findViewById(job.search.visa.global.check.migration.internship.news.usa.food.shop.R.id.llmostusefulapps)
     }
 
         fun setRecyclerView(){

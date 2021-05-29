@@ -7,13 +7,11 @@ import retrofit2.converter.gson.GsonConverterFactory
 class DataFactory {
 
 //    HOME
-
-    val URL_ALL_APPS = BASE_URL + "1FWSgjbRXtaT_batfkiU2P4xBcIi9o-MpRjldxvLI_-U/values/Sheet1!A2:E/"
-    val URL_CAROUSEL_IMAGES = BASE_URL + "1AFbXhOp_Lax8KJeAnW9LMkGxybrRhNGyqPIUVrY8ORU/values/Sheet1!A2:E/"
-    val URL_TOP_INTERNATIONAL = BASE_URL + "1mjvyFhJ50639BiecWE175bKq_dwTK_H-g6haNMdYeK0/values/Sheet1!A2:E/"
+    val URL_ALL_APPS = BASE_URL + "1zWx_2607By2MWLQQnVeb96qk_n3ekGUxw8TozoeVyzQ/values/Sheet1!A2:E/"
+    val URL_CAROUSEL_IMAGES = BASE_URL + "1OkgCsFJDSbGXFJYTULENJvBLjG6jjBxOc8MO4mVlF38/values/Sheet1!A2:E/"
+    val URL_TOP_INTERNATIONAL = BASE_URL + "1KwMRcmA7czztXROmgD-hpcJqh2gQCwojEeRzDA8uAkY/values/Sheet1!A2:E/"
 
 //    GLOBAL
-
     val URL_INDIA = BASE_URL + "1tSO3Xq0bwVbj4tHe0BzcypQqdnD9bdH27D4VMF-HrkA/values/Sheet1!A2:E/"
     val URL_USA = BASE_URL + "1X24kzf_Cj9UARWIlnwCByH6Jy4pBU_hrysk8hk0TKbQ/values/Sheet1!A2:E/"
     val URL_RUSSIA = BASE_URL + "1qQuUOMVdO_ZjcQdZUGPcIt6HsIZRrQbch7gInnkuBf8/values/Sheet1!A2:E/"
@@ -58,7 +56,8 @@ class DataFactory {
     val URL_FOOD = BASE_URL + "1Nb-3_mA2dqQ4DnyKaGZHHl0RqFrhFa2uUPY7Z-U6W8M/values/Sheet1!A2:E/"
     val URL_GAMES = BASE_URL + "1CRax3ICXXrMhHeG2wfyakrmSDwPDruVvrTJ01JospQ0/values/Sheet1!A2:E/"
     val URL_SHOPPINGTOOLS = BASE_URL + "1LoZ0zxjSCpRMtIKTOe9OoDZ-O-v8JTxMH_BErVyuYcg/values/Sheet1!A2:E/"
-    val URL_SOCIALMEDIA= BASE_URL + "1_WsMnRtAj9meo38TubXRFWQbOTWJaC-J-JAAFRi6iBk/values/Sheet1!A2:E/"
+    val URL_SOCIALMEDIA = BASE_URL + "1_WsMnRtAj9meo38TubXRFWQbOTWJaC-J-JAAFRi6iBk/values/Sheet1!A2:E/"
+    val URL_MOSTUSEFULAPPS = BASE_URL + "1GBg0VGmeLj8bdW3RfzRui3poGCGPpi3H2sD4MseIt54/values/Sheet1!A2:E/"
 
     val KEY = "AIzaSyB21bRVxi8IVsINBqyRDKwq3b6bWr4gRys"
 

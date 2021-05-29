@@ -29,7 +29,7 @@ class TopInternationalViewHolder(itemView: View?) :
         listener: TopInternationalClickListener<List<String>>?
     ) {
         Glide.with(ivTrendingIcon!!.context)
-            .load(item[4])
+            .load(item[3])
             .diskCacheStrategy(DiskCacheStrategy.ALL)
             .into(ivTrendingIcon!!)
 

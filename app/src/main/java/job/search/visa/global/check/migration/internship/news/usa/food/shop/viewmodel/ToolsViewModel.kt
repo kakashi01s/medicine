@@ -23,6 +23,7 @@ class ToolsViewModel : ViewModel() {
     var foodData: MutableLiveData<List<List<String>>?> = MutableLiveData()
     var sportsData: MutableLiveData<List<List<String>>?> = MutableLiveData()
     var gamesData: MutableLiveData<List<List<String>>?> = MutableLiveData()
+    var mostusefulappsData: MutableLiveData<List<List<String>>?> = MutableLiveData()
 
 
     fun loadData(){
@@ -34,9 +35,38 @@ class ToolsViewModel : ViewModel() {
         fetchshoppingtools()
         fetchfood()
         fetchsocialmedia()
+        fetchmostusefulapps()
 
 
     }
+
+    private fun fetchmostusefulapps() {
+        Log.d("TAG", "fetchAllApps: ")
+        val gov: gov? = gov.get()
+
+        val dataService by lazy {
+            DataFactory.create()
+        }
+
+        val disposable: Disposable?
+        disposable = dataService?.fetchAllApps(DataFactory().URL_MOSTUSEFULAPPS, DataFactory().KEY)
+            ?.subscribeOn(Schedulers.io())
+            ?.observeOn(AndroidSchedulers.mainThread())
+            ?.doOnError(Consumer { t ->
+                Log.d("TAG", "fetchdeals Error ${t.localizedMessage}")
+            })
+            ?.subscribe(Consumer { t ->
+                Log.d("TAG", "fetchdeals Response ${t.getValues()}")
+                changemostusefulappsDataSet(t.getValues())
+            })
+
+        if (disposable != null) {
+            compositeDisposable?.add(disposable)
+        }
+
+    }
+
+
 
     private fun fetchdeals(){
         Log.d("TAG", "fetchAllApps: ")
@@ -218,6 +248,11 @@ class ToolsViewModel : ViewModel() {
         if (compositeDisposable != null && !compositeDisposable!!.isDisposed) {
             compositeDisposable!!.dispose()
         }
+    }
+    private fun changemostusefulappsDataSet(mostusefulappsList: List<List<String>>?) {
+
+        mostusefulappsData.value = mostusefulappsList
+
     }
 
     fun reset() {
