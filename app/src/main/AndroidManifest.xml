@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-    package="job.search.visa.global.check.migration.internship.news.usa.food.shop">
+    package="medicine.fitness.lab.test.global.health.food.all.shopping.exercise.pregnancy">
 
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
     <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION"/>
     <uses-permission android:name="android.permission.INTERNET" />
 
     <application
-        android:name="job.search.visa.global.check.migration.internship.news.usa.food.shop.gov"
+        android:name="medicine.fitness.lab.test.global.health.food.all.shopping.exercise.pregnancy.doctor"
         android:allowBackup="true"
         android:icon="@drawable/app_logo"
         android:label="@string/app_name"
@@ -17,18 +17,18 @@
         android:usesCleartextTraffic="true"
         android:largeHeap="true"
         tools:targetApi="m">
-        <activity android:name="job.search.fantasy.hub.online.global.shopping.world.social.all.view.SplashActivity">
+        <activity android:name="medicine.fitness.fantasy.hub.online.global.shopping.world.social.all.view.SplashActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name="job.search.visa.global.check.migration.internship.news.usa.food.shop.view.WebActivity"
+        <activity android:name="medicine.fitness.lab.test.global.health.food.all.shopping.exercise.pregnancy.view.WebActivity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenLayout|uiMode|screenSize|smallestScreenSize"
             android:hardwareAccelerated="true"
             android:windowSoftInputMode="adjustPan"/>
-        <activity android:name="job.search.visa.global.check.migration.internship.news.usa.food.shop.view.MainActivity"/>
+        <activity android:name="medicine.fitness.lab.test.global.health.food.all.shopping.exercise.pregnancy.view.MainActivity"/>
 
         <uses-library
             android:name="org.apache.http.legacy"

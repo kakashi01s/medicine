@@ -1,41 +1,41 @@
 {
   "project_info": {
-    "project_number": "124355074737",
-    "project_id": "jobs-a5fe0",
-    "storage_bucket": "jobs-a5fe0.appspot.com"
+    "project_number": "318832618815",
+    "project_id": "all-in-one-medicine-4103a",
+    "storage_bucket": "all-in-one-medicine-4103a.appspot.com"
   },
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:124355074737:android:5881a9d6f81f3823b0e090",
+        "mobilesdk_app_id": "1:318832618815:android:401fec2a091b38e43ab78a",
         "android_client_info": {
-          "package_name": "job.search.visa.global.check.migration.internship.news.usa.food.shop.gov"
+          "package_name": "medicine.fitness.lab.test.global.health.food.all.shopping.exercise.pregnancy.doctor"
         }
       },
       "oauth_client": [
         {
-          "client_id": "124355074737-ros38pbf3r92ttbnggo4264uvrugl2qt.apps.googleusercontent.com",
+          "client_id": "318832618815-urcqr8lmhv3vrqagla7qc0u34c7etime.apps.googleusercontent.com",
           "client_type": 1,
           "android_info": {
-            "package_name": "job.search.visa.global.check.migration.internship.news.usa.food.shop.gov",
+            "package_name": "medicine.fitness.lab.test.global.health.food.all.shopping.exercise.pregnancy.doctor",
             "certificate_hash": "0e9a81e81b75b4654c7c98887fb3b5760ae00d44"
           }
         },
         {
-          "client_id": "124355074737-gj29ci4mbd1v4pofmkcmeqv7nt5dsilq.apps.googleusercontent.com",
+          "client_id": "318832618815-e85mk58prdv86n8pe84igl36e72veobv.apps.googleusercontent.com",
           "client_type": 3
         }
       ],
       "api_key": [
         {
-          "current_key": "AIzaSyCC1u6loIU3M4knksSvPefJ-sbQZci1Rzs"
+          "current_key": "AIzaSyCvxUMzm-8Ac57PxdNr7SALrbc0ZUeEbjM"
         }
       ],
       "services": {
         "appinvite_service": {
           "other_platform_oauth_client": [
             {
-              "client_id": "124355074737-gj29ci4mbd1v4pofmkcmeqv7nt5dsilq.apps.googleusercontent.com",
+              "client_id": "318832618815-e85mk58prdv86n8pe84igl36e72veobv.apps.googleusercontent.com",
               "client_type": 3
             }
           ]

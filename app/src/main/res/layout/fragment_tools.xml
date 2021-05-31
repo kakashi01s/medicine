@@ -23,49 +23,9 @@
         android:orientation="vertical">
 
 
-        <androidx.cardview.widget.CardView
-            android:id="@+id/card_games"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_margin="20dp"
-            android:elevation="3dp"
-            android:padding="5dp"
-            app:cardBackgroundColor="#E6FD00"
-            app:cardCornerRadius="12dp"
-            app:cardElevation="4dp"
-            app:contentPadding="4dp"
-            >
-
-            <LinearLayout
-                android:id="@+id/llgames"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:padding="16dp">
-
-                <TextView
-                    android:id="@+id/card_games_title"
-                    android:layout_width="wrap_content"
-                    android:layout_height="50dp"
-                    android:layout_margin="5dp"
-                    android:layout_marginTop="10dp"
-                    android:padding="5dp"
-                    android:text="Games"
-                    android:textColor="@color/black"
-                    android:textSize="30dp"
-                    android:textStyle="bold"
-                    app:layout_constraintLeft_toLeftOf="parent"
-                    app:layout_constraintTop_toTopOf="parent" />
-
-
-
-
-            </LinearLayout>
-
-
-        </androidx.cardview.widget.CardView>
 
         <androidx.cardview.widget.CardView
-            android:id="@+id/card_food"
+            android:id="@+id/card_medicine"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_margin="20dp"
@@ -78,19 +38,19 @@
             >
 
         <LinearLayout
-            android:id="@+id/llfood"
+            android:id="@+id/llmedicine"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:padding="16dp">
 
             <TextView
-                android:id="@+id/card_food_title"
+                android:id="@+id/card_medicine_title"
                 android:layout_width="wrap_content"
                 android:layout_height="50dp"
                 android:layout_margin="5dp"
                 android:layout_marginTop="10dp"
                 android:padding="5dp"
-                android:text="Food"
+                android:text="Medicine"
                 android:textColor="@color/black"
                 android:textSize="30dp"
                 android:textStyle="bold"
@@ -98,7 +58,7 @@
                 app:layout_constraintTop_toTopOf="parent" />
 
             <TextView
-                android:id="@+id/card_food_body"
+                android:id="@+id/card_medicine_body"
                 android:layout_width="wrap_content"
                 android:layout_height="40dp"
                 android:layout_margin="5dp"
@@ -107,13 +67,13 @@
                 android:textColor="@color/black"
                 android:textSize="20dp"
                 app:layout_constraintLeft_toLeftOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/card_food_title" />
+                app:layout_constraintTop_toBottomOf="@id/card_medicine_title" />
 
         </LinearLayout>
         </androidx.cardview.widget.CardView>
 
         <androidx.cardview.widget.CardView
-            android:id="@+id/card_shopping"
+            android:id="@+id/card_healthyfood"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_margin="20dp"
@@ -126,19 +86,19 @@
 
             <LinearLayout
                 android:orientation="vertical"
-                android:id="@+id/llshoppingtools"
+                android:id="@+id/llhealthyfood"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:padding="16dp">
 
                 <TextView
-                    android:id="@+id/card_shopping_title"
+                    android:id="@+id/card_healthyfood_title"
                     android:layout_width="wrap_content"
                     android:layout_height="50dp"
                     android:layout_margin="5dp"
                     android:layout_marginTop="10dp"
                     android:padding="5dp"
-                    android:text="Shopping"
+                    android:text="Healthy Food"
                     android:textColor="@color/black"
                     android:textSize="30dp"
                     android:textStyle="bold"
@@ -180,9 +140,8 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="vertical">
-ps
                 <androidx.cardview.widget.CardView
-                    android:id="@+id/card_mostusefulap"
+                    android:id="@+id/card_mostusefulapps"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_margin="20dp"
@@ -206,43 +165,7 @@ ps
                             android:layout_margin="5dp"
                             android:layout_marginTop="10dp"
                             android:padding="5dp"
-                            android:text="Most Useful Appps"
-                            android:textColor="@color/black"
-                            android:textSize="30dp"
-                            android:textStyle="bold"
-                            app:layout_constraintLeft_toLeftOf="parent"
-                            app:layout_constraintTop_toTopOf="parent" />
-
-
-                    </LinearLayout>
-                </androidx.cardview.widget.CardView>
-
-                <androidx.cardview.widget.CardView
-                    android:id="@+id/card_deals"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_margin="20dp"
-                    android:elevation="3dp"
-                    android:padding="5dp"
-                    app:cardBackgroundColor="#FF4F8B"
-                    app:cardCornerRadius="12dp"
-                    app:cardElevation="4dp"
-                    app:contentPadding="4dp">
-
-                    <LinearLayout
-                        android:id="@+id/lldeals"
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:padding="16dp">
-
-                        <TextView
-                            android:id="@+id/card_deals_title"
-                            android:layout_width="wrap_content"
-                            android:layout_height="50dp"
-                            android:layout_margin="5dp"
-                            android:layout_marginTop="10dp"
-                            android:padding="5dp"
-                            android:text="Deals"
+                            android:text="Most Useful Apps"
                             android:textColor="@color/black"
                             android:textSize="30dp"
                             android:textStyle="bold"
@@ -255,8 +178,10 @@ ps
 
 
 
+
+
                 <androidx.cardview.widget.CardView
-                    android:id="@+id/card_socialmedia"
+                    android:id="@+id/card_fitness"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_margin="20dp"
@@ -268,19 +193,19 @@ ps
                     app:contentPadding="4dp">
 
                     <LinearLayout
-                        android:id="@+id/llsocialmedia"
+                        android:id="@+id/llfitness"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         android:padding="16dp">
 
                         <TextView
-                            android:id="@+id/card_socialmedia_title"
+                            android:id="@+id/card_fitness_title"
                             android:layout_width="wrap_content"
                             android:layout_height="50dp"
                             android:layout_margin="5dp"
                             android:layout_marginTop="10dp"
                             android:padding="5dp"
-                            android:text="Social Media"
+                            android:text="Fitness"
                             android:textColor="@color/black"
                             android:textSize="30dp"
                             android:textStyle="bold"
@@ -293,7 +218,7 @@ ps
                 </androidx.cardview.widget.CardView>
 
                 <androidx.cardview.widget.CardView
-                    android:id="@+id/card_sports"
+                    android:id="@+id/card_health"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_margin="20dp"
@@ -305,19 +230,19 @@ ps
                     app:contentPadding="4dp">
 
                     <LinearLayout
-                        android:id="@+id/llsports"
+                        android:id="@+id/llhealth"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         android:padding="16dp">
 
                         <TextView
-                            android:id="@+id/card_sports_title"
+                            android:id="@+id/card_health_title"
                             android:layout_width="wrap_content"
                             android:layout_height="50dp"
                             android:layout_margin="5dp"
                             android:layout_marginTop="10dp"
                             android:padding="5dp"
-                            android:text="Sports"
+                            android:text="Health"
                             android:textColor="@color/black"
                             android:textSize="30dp"
                             android:textStyle="bold"

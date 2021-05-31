@@ -10,7 +10,7 @@ android {
     buildToolsVersion "29.0.3"
 
     defaultConfig {
-        applicationId "job.search.visa.global.check.migration.internship.news.usa.food.shop.gov"
+        applicationId "medicine.fitness.lab.test.global.health.food.all.shopping.exercise.pregnancy.doctor"
         minSdkVersion 16
         targetSdkVersion 29
         versionCode 4
