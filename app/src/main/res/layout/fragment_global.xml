@@ -410,7 +410,7 @@
                     android:layout_margin="20dp"
                     android:elevation="3dp"
                     android:padding="5dp"
-                    app:cardBackgroundColor="#7CF36F"
+                    app:cardBackgroundColor="#EEFF41"
                     app:cardCornerRadius="12dp"
                     app:cardElevation="4dp"
                     app:contentPadding="4dp">
@@ -460,7 +460,7 @@
                     android:layout_margin="20dp"
                     android:elevation="3dp"
                     android:padding="5dp"
-                    app:cardBackgroundColor="#7CF36F"
+                    app:cardBackgroundColor="#E45E8C"
                     app:cardCornerRadius="12dp"
                     app:cardElevation="4dp"
                     app:contentPadding="4dp">
@@ -496,7 +496,7 @@
                     android:layout_margin="20dp"
                     android:elevation="3dp"
                     android:padding="5dp"
-                    app:cardBackgroundColor="#7CF36F"
+                    app:cardBackgroundColor="#0BF3F3"
                     app:cardCornerRadius="12dp"
                     app:cardElevation="4dp"
                     app:contentPadding="4dp">

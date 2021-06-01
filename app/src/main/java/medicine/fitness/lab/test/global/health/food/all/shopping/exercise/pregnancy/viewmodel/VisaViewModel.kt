@@ -1,5 +1,6 @@
 package medicine.fitness.lab.test.global.health.food.all.shopping.exercise.pregnancy.viewmodel
 
+
 import android.content.Context
 import android.util.Log
 import androidx.lifecycle.MutableLiveData
@@ -9,36 +10,27 @@ import io.reactivex.disposables.CompositeDisposable
 import io.reactivex.disposables.Disposable
 import io.reactivex.functions.Consumer
 import io.reactivex.schedulers.Schedulers
-import medicine.fitness.lab.test.global.health.food.all.shopping.exercise.pregnancy.doctor
 import medicine.fitness.lab.test.global.health.food.all.shopping.exercise.pregnancy.data.DataFactory
+import medicine.fitness.lab.test.global.health.food.all.shopping.exercise.pregnancy.doctor
+
 
 class VisaViewModel : ViewModel() {
     private var context: Context? = null
     var compositeDisposable: CompositeDisposable? = null
 
-    var visastatusData: MutableLiveData<List<List<String>>?> = MutableLiveData()
-    var travelData: MutableLiveData<List<List<String>>?> = MutableLiveData()
-    var citizenshipData: MutableLiveData<List<List<String>>?> = MutableLiveData()
-    var migrationData: MutableLiveData<List<List<String>>?> = MutableLiveData()
-    var globaluniversitiesData: MutableLiveData<List<List<String>>?> = MutableLiveData()
-    var weatherData: MutableLiveData<List<List<String>>?> = MutableLiveData()
-    var newsData: MutableLiveData<List<List<String>>?> = MutableLiveData()
+    var BookLabData: MutableLiveData<List<List<String>>?> = MutableLiveData()
+    var TestResultData: MutableLiveData<List<List<String>>?> = MutableLiveData()
+
 
     fun loadData(){
-        Log.d("TAG", "loadData: News")
+        Log.d("TAG", "loadData: News ")
         compositeDisposable = CompositeDisposable()
-        fetchvisastatus()
-        fetchtravel()
-        fetchcitizenship()
-        fetchmigration()
-        fetchglobaluniversities()
-        fetchweather()
-        fetchnews()
-
+        fetchBookLab()
+        fetchTestResult()
 
     }
 
-    private fun fetchnews() {
+    private fun fetchBookLab(){
         Log.d("TAG", "fetchAllApps: ")
         val doctor: doctor? = doctor.get()
 
@@ -47,15 +39,15 @@ class VisaViewModel : ViewModel() {
         }
 
         val disposable: Disposable?
-        disposable = dataService?.fetchAllApps(DataFactory().URL_NEWS, DataFactory().KEY)
+        disposable = dataService?.fetchAllApps(DataFactory().URL_BOOKLAB, DataFactory().KEY)
             ?.subscribeOn(Schedulers.io())
             ?.observeOn(AndroidSchedulers.mainThread())
             ?.doOnError(Consumer { t ->
-                Log.d("TAG", "fetchdeals Error ${t.localizedMessage}")
+                Log.d("TAG", "fetchLiveNews Error ${t.localizedMessage}")
             })
             ?.subscribe(Consumer { t ->
-                Log.d("TAG", "fetchdeals Response ${t.getValues()}")
-                changeNewsDataSet(t.getValues())
+                Log.d("TAG", "fetchLiveNews Response ${t.getValues()}")
+                changeBookLabDataSet(t.getValues())
             })
 
         if (disposable != null) {
@@ -63,12 +55,8 @@ class VisaViewModel : ViewModel() {
         }
     }
 
-    private fun changeNewsDataSet(newsList: List<List<String>>?) {
-        newsData.value = newsList
-    }
-
-    private fun fetchweather() {
-        Log.d("TAG", "fetchAllApps: ")
+    private fun fetchTestResult(){
+        Log.d("TAG", "fetchMostUsefullApps: ")
         val doctor: doctor? = doctor.get()
 
         val dataService by lazy {
@@ -76,15 +64,15 @@ class VisaViewModel : ViewModel() {
         }
 
         val disposable: Disposable?
-        disposable = dataService?.fetchAllApps(DataFactory().URL_WEATHER, DataFactory().KEY)
+        disposable = dataService?.fetchAllApps(DataFactory().URL_TESTRESULT, DataFactory().KEY)
             ?.subscribeOn(Schedulers.io())
             ?.observeOn(AndroidSchedulers.mainThread())
             ?.doOnError(Consumer { t ->
-                Log.d("TAG", "fetchdeals Error ${t.localizedMessage}")
+                Log.d("TAG", "fetchMostUsefulApps Error ${t.localizedMessage}")
             })
             ?.subscribe(Consumer { t ->
-                Log.d("TAG", "fetchdeals Response ${t.getValues()}")
-                changeWeatherDataSet(t.getValues())
+                Log.d("TAG", "fetchMostUsefulApps Response ${t.getValues()}")
+                changeTestResultDataSet(t.getValues())
             })
 
         if (disposable != null) {
@@ -92,154 +80,16 @@ class VisaViewModel : ViewModel() {
         }
     }
 
-    private fun changeWeatherDataSet(weatherList: List<List<String>>?) {
-        weatherData.value = weatherList
+
+
+    fun changeBookLabDataSet(liveNewsList: List<List<String>>?){
+        BookLabData.value = liveNewsList
     }
 
-    private fun fetchglobaluniversities() {
-        Log.d("TAG", "fetchAllApps: ")
-        val doctor: doctor? = doctor.get()
-
-        val dataService by lazy {
-            DataFactory.create()
-        }
-
-        val disposable: Disposable?
-        disposable = dataService?.fetchAllApps(DataFactory().URL_GLOBALUNIVERSITY, DataFactory().KEY)
-            ?.subscribeOn(Schedulers.io())
-            ?.observeOn(AndroidSchedulers.mainThread())
-            ?.doOnError(Consumer { t ->
-                Log.d("TAG", "fetchdeals Error ${t.localizedMessage}")
-            })
-            ?.subscribe(Consumer { t ->
-                Log.d("TAG", "fetchdeals Response ${t.getValues()}")
-                changeGlobalUniversitiesDataSet(t.getValues())
-            })
-
-        if (disposable != null) {
-            compositeDisposable?.add(disposable)
-        }
+    fun changeTestResultDataSet(liveNewsList: List<List<String>>?){
+        TestResultData.value = liveNewsList
     }
 
-    private fun changeGlobalUniversitiesDataSet(globaluniversitiesList: List<List<String>>?) {
-        globaluniversitiesData.value = globaluniversitiesList
-    }
-
-    private fun fetchmigration() {
-        Log.d("TAG", "fetchAllApps: ")
-        val doctor: doctor? = doctor.get()
-
-        val dataService by lazy {
-            DataFactory.create()
-        }
-
-        val disposable: Disposable?
-        disposable = dataService?.fetchAllApps(DataFactory().URL_MIGRATION, DataFactory().KEY)
-            ?.subscribeOn(Schedulers.io())
-            ?.observeOn(AndroidSchedulers.mainThread())
-            ?.doOnError(Consumer { t ->
-                Log.d("TAG", "fetchdeals Error ${t.localizedMessage}")
-            })
-            ?.subscribe(Consumer { t ->
-                Log.d("TAG", "fetchdeals Response ${t.getValues()}")
-                changeMigrationDataSet(t.getValues())
-            })
-
-        if (disposable != null) {
-            compositeDisposable?.add(disposable)
-        }
-    }
-
-    private fun changeMigrationDataSet(migrationList: List<List<String>>?) {
-        migrationData.value = migrationList
-    }
-
-    private fun fetchcitizenship() {
-        Log.d("TAG", "fetchAllApps: ")
-        val doctor: doctor? = doctor.get()
-
-        val dataService by lazy {
-            DataFactory.create()
-        }
-
-        val disposable: Disposable?
-        disposable = dataService?.fetchAllApps(DataFactory().URL_CITIZENSHIP, DataFactory().KEY)
-            ?.subscribeOn(Schedulers.io())
-            ?.observeOn(AndroidSchedulers.mainThread())
-            ?.doOnError(Consumer { t ->
-                Log.d("TAG", "fetchdeals Error ${t.localizedMessage}")
-            })
-            ?.subscribe(Consumer { t ->
-                Log.d("TAG", "fetchdeals Response ${t.getValues()}")
-                changeCitizenshipDataSet(t.getValues())
-            })
-
-        if (disposable != null) {
-            compositeDisposable?.add(disposable)
-        }
-    }
-
-    private fun changeCitizenshipDataSet(citizenshipList: List<List<String>>?) {
-        citizenshipData.value = citizenshipList
-    }
-
-    private fun fetchtravel() {
-        Log.d("TAG", "fetchAllApps: ")
-        val doctor: doctor? = doctor.get()
-
-        val dataService by lazy {
-            DataFactory.create()
-        }
-
-        val disposable: Disposable?
-        disposable = dataService?.fetchAllApps(DataFactory().URL_TRAVEL, DataFactory().KEY)
-            ?.subscribeOn(Schedulers.io())
-            ?.observeOn(AndroidSchedulers.mainThread())
-            ?.doOnError(Consumer { t ->
-                Log.d("TAG", "fetchdeals Error ${t.localizedMessage}")
-            })
-            ?.subscribe(Consumer { t ->
-                Log.d("TAG", "fetchdeals Response ${t.getValues()}")
-                changeTravelDataSet(t.getValues())
-            })
-
-        if (disposable != null) {
-            compositeDisposable?.add(disposable)
-        }
-    }
-
-    private fun changeTravelDataSet(travelList: List<List<String>>?) {
-        travelData.value = travelList
-    }
-
-    private fun fetchvisastatus() {
-        Log.d("TAG", "fetchAllApps: ")
-        val doctor: doctor? = doctor.get()
-
-        val dataService by lazy {
-            DataFactory.create()
-        }
-
-        val disposable: Disposable?
-        disposable = dataService?.fetchAllApps(DataFactory().URL_VISA, DataFactory().KEY)
-            ?.subscribeOn(Schedulers.io())
-            ?.observeOn(AndroidSchedulers.mainThread())
-            ?.doOnError(Consumer { t ->
-                Log.d("TAG", "fetchdeals Error ${t.localizedMessage}")
-            })
-            ?.subscribe(Consumer { t ->
-                Log.d("TAG", "fetchdeals Response ${t.getValues()}")
-                changeVisaDataSet(t.getValues())
-            })
-
-        if (disposable != null) {
-            compositeDisposable?.add(disposable)
-        }
-    }
-
-    private fun changeVisaDataSet(visastatusList: List<List<String>>?) {
-        visastatusData.value = visastatusList
-    }
 
     private fun unSubscribeFromObservable() {
         if (compositeDisposable != null && !compositeDisposable!!.isDisposed) {
@@ -252,9 +102,4 @@ class VisaViewModel : ViewModel() {
         compositeDisposable = null
         context = null
     }
-
-
 }
-
-
-

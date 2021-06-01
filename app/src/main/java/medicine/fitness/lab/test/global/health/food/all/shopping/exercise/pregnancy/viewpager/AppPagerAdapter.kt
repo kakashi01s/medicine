@@ -40,12 +40,13 @@ class AppPagerAdapter(fragmentManager: FragmentManager,val homeFragmentData: All
     override fun getPageTitle(position: Int): CharSequence? {
         var title : String? = null;
         if (position == 0) {
-            title = "Visa"
+            title = "Lab Test"
+
         } else if (position == 1) {
             title = "Home"
         }
         else if (position == 2) {
-            title = "Global"
+            title = "Pregnancy"
         }
         else if (position == 3) {
             title = "Tools"

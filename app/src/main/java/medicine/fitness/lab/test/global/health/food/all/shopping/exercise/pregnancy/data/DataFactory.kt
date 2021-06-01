@@ -7,9 +7,9 @@ import retrofit2.converter.gson.GsonConverterFactory
 class DataFactory {
 
 //    HOME
-    val URL_ALL_APPS = BASE_URL + "1zWx_2607By2MWLQQnVeb96qk_n3ekGUxw8TozoeVyzQ/values/Sheet1!A2:E/"
-    val URL_CAROUSEL_IMAGES = BASE_URL + "1OkgCsFJDSbGXFJYTULENJvBLjG6jjBxOc8MO4mVlF38/values/Sheet1!A2:E/"
-    val URL_TOP_INTERNATIONAL = BASE_URL + "1KwMRcmA7czztXROmgD-hpcJqh2gQCwojEeRzDA8uAkY/values/Sheet1!A2:E/"
+    val URL_ALL_APPS = BASE_URL + "1cjeDVcK15fmQfMFR9GPk-Vn3kshlPT-fOoivNMbM6s4/values/Sheet1!A2:E/"
+    val URL_CAROUSEL_IMAGES = BASE_URL + "19up5GOYq4hVG99sfDgRmXZrjkosolZtiH858GC_CC7k/values/Sheet1!A2:E/"
+    val URL_TOP_INTERNATIONAL = BASE_URL + "1SzIVZL0l_sZyYUmP2-lpv38sZGBGE4NhF5Mr2tQzNVs/values/Sheet1!A2:E/"
 
 //    GLOBAL
     val URL_WEIGHT = BASE_URL + "1xo-dgBKr--VwRxTmaEMwXIJPw9Njn0KGLqt4958EB3Q/values/Sheet1!A2:E/"
@@ -31,13 +31,8 @@ class DataFactory {
     val URL_CARD_START = BASE_URL
     val URL_CARD_END = "/values/Sheet1!A2:E/"
 //    VISA
-    val URL_VISA = BASE_URL + "1uSSHhwbzUMwDSWewo0EizH5puLy6oDDs92iCu9r7igE/values/Sheet1!A2:E/"
-    val URL_TRAVEL = BASE_URL + "1KsRKvUYkWVlV7ncxd1hRmhnRDMPMt5ueBplvVu7q4a0/values/Sheet1!A2:E/"
-    val URL_CITIZENSHIP = BASE_URL + "1ptq-2-VFItR_GLRiJ6f3x9GeR3dYYAc4OCfmpLTagfs/values/Sheet1!A2:E/"
-    val URL_MIGRATION = BASE_URL + "1CKTNcByzf-6o36L5bwvg-cqDOKTVvKlSsG3DlCtp7sI/values/Sheet1!A2:E/"
-    val URL_NEWS = BASE_URL + "1dhDzgLIHZg1FZqjBLYqmT8YNOqav8QpHH0BsItMs12M/values/Sheet1!A2:E/"
-    val URL_WEATHER = BASE_URL + "1odaLwWZkZi14OESX2TTHfJUx9thwIZwgUUo7wm0SmMA/values/Sheet1!A2:E/"
-    val URL_GLOBALUNIVERSITY = BASE_URL + "1oDwWDDO1gAMKd1AJ5ugU57MyVwdQH-Ee_icQCrRXKy0/values/Sheet1!A2:E/"
+    val URL_BOOKLAB = BASE_URL + "1NLIiBZk7A6WrAx_CD9ctlvhqGheFssJL_tHoICf5FpM/values/Sheet1!A2:E/"
+    val URL_TESTRESULT = BASE_URL + "14eqkWQ2w7yWw5oYNDIcJyjvEp-58y5stiW0nm98htnY/values/Sheet1!A2:E/"
 
 
 //    TOOLS
